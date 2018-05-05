@@ -1,0 +1,19 @@
+{
+  "name": "vocabulary-trainer",
+  "version": "1.0.0",
+  "description": "Vocabulary Trainer. Javascript SS-18.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://r-n-d.informatik.hs-augsburg.de:8080/javascript-ss18/vocabulary-trainer.git"
+  },
+  "author": "Maksym Kadatskyi <maksym.kadatskyi@hs-augsburg.de>",
+  "contributors": [
+    "Fabian Popp <fabian.popp@hs-augsburg.de>",
+    "Maksym Kadatskyi <maksym.kadatskyi@hs-augsburg.de>"
+  ],
+  "license": "ISC"
+}
