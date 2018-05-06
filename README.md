@@ -2,6 +2,21 @@
 
 *Fabian Popp*  **&** *Maksym Kadatskyi*
 
+***
+
+
+### How to start:
+
+1. `git clone` *\<repo_url\>*
+2. `cd vocabulary-trainer`
+3. `npm install`
+4. Start work on app:
+    - `npm run dev` - run webpack dev server
+    - `npm run build` - build bundle.js
+
+
+***
+
 ### Basic
 
 - The user should be able to add a word to the vocabulary
