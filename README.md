@@ -1,6 +1,6 @@
 # Vocabulary Trainer
 
-*Fabian Popp*  **&** *Maksym Kadatskyi* 
+*Fabian Popp*  **&** *Maksym Kadatskyi*
 
 ### Basic
 
@@ -21,7 +21,7 @@
 - The user should be able to enter the right word according to the listened word (**Game Mode №6**)
 - The user should be able to save all words by sending them to the server
 - The user should be able to load all words by requesting them from the server
- 
+
 
 ***
 
