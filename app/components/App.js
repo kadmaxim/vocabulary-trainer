@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Route } from "react-router-dom"
-import { Columns, Column, Title } from 'bloomer'
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Columns, Column, Title, Tile } from 'bloomer'
 import QMenu from './QMenu'
 import Mode2 from './Mode2'
 
 const Home = () => (
-    <h1>Welkome!</h1>
+    <Tile hasTextAlign="centered" isChild>
+      <Title>Welcome!</Title>
+    </Tile>
 )
 
 class App extends Component {
 
   render(){
     return (
+    <Router>
       <Columns>
         <Column isSize='1/4'>
           <QMenu />
         </Column>
-        <Mode2 />
-        <Route path="/" component={Home} />
+        <Route exact path="/" component={Home} />
         <Route path="/choose" component={Mode2} />
       </Columns>
+    </Router>
     )
   }
 }

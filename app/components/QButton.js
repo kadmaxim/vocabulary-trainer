@@ -2,14 +2,13 @@ import React, { Component } from 'react'
 import { Button, Column } from 'bloomer'
 
 
-export default class ButtonWrap extends Component {
+export default class QButton extends Component {
   constructor(props){
     super(props)
     this.state = { isPressed : false }
 
     this.handleClick = this.handleClick.bind(this);
   }
-
 
   handleClick(){
     console.log( `hit! `)
@@ -22,8 +21,7 @@ export default class ButtonWrap extends Component {
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-
-      return prevState.isPressed && nextProps.mode ? {} : { isPressed: false }
+    return prevState.isPressed && nextProps.mode ? {} : { isPressed: false }
   }
 
   render(){
