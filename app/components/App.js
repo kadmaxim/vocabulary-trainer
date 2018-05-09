@@ -1,51 +1,25 @@
 import React, { Component } from 'react'
-import { Columns, Column, Image, Title } from 'bloomer'
-import _ from 'lodash/collection'
-import QButton from './Button'
-import DB from './../db'
+import { BrowserRouter as Route } from "react-router-dom"
+import { Columns, Column, Title } from 'bloomer'
+import QMenu from './QMenu'
+import Mode2 from './Mode2'
+
+const Home = () => (
+    <h1>Welkome!</h1>
+)
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-    this.handleBtn = this.handleBtn.bind(this)
-    this.state = { answers: [], correct: {}, freeze: false}
-  }
-
-  handleClick(){
-    let answers = _.sampleSize(DB, 4)
-    let correct = _.sample(answers)
-    let freeze = false;
-    this.setState({ answers, correct, freeze })
-    console.log( `hit! ${JSON.stringify(answers)} `)
-  }
-
-  handleBtn(id, e){
-    this.setState({freeze: true})
-    console.log(id)
-  }
 
   render(){
     return (
       <Columns>
-        <Column>
-          <h1>{ this.props.msg }</h1>
-          <Title>{this.state.correct.translation}</Title>
-          <Column>
-            <Image isSize='256x256' src={this.state.correct.img_url ? this.state.correct.img_url: 'https://via.placeholder.com/256x256'} />
-          </Column>
+        <Column isSize='1/4'>
+          <QMenu />
         </Column>
-        <Column>
-          {
-            this.state.answers.map(
-              (item,i) => <QButton key={i} elem={item} mode={this.state.freeze}
-                              handler={this.handleBtn} rid={this.state.correct.id} />
-            )
-          }
-          <QButton handler={this.handleClick} />
-        </Column>
+        <Mode2 />
+        <Route path="/" component={Home} />
+        <Route path="/choose" component={Mode2} />
       </Columns>
-
     )
   }
 }
