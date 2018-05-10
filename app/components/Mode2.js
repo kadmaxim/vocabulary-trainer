@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { Columns, Column, Image, Title, Tile, Icon } from 'bloomer'
 import _ from 'lodash/collection'
 import QButton from './QButton'
+import SkipButton from './SkipButton'
 import DB from './../db'
 
 export default class Mode2 extends Component {
   constructor(props){
     super(props)
-    this.handleClick = this.handleClick.bind(this)
+    this.showRight = this.showRight.bind(this)
     this.handleBtn = this.handleBtn.bind(this)
     this.handleImg = this.handleImg.bind(this)
     this.generateNext = this.generateNext.bind(this)
@@ -17,8 +18,8 @@ export default class Mode2 extends Component {
       this.generateNext();
   }
 
-  handleClick(){
-    this.generateNext();
+  showRight(){
+    document.querySelector(`.btn-${this.state.correct.id}`).click()
   }
 
   generateNext(){
@@ -38,7 +39,7 @@ export default class Mode2 extends Component {
   }
 
   render(){
-    let { correct, freeze } = this.state
+    let { correct, freeze, answers } = this.state
     let iconClass = !this.state.hideImg ? "fa fa-2x fa-eye" : "fa fa-2x fa-eye-slash"
     return (
       <Tile>
@@ -51,12 +52,11 @@ export default class Mode2 extends Component {
         </Column>
         <Column isSize='1/2' className="buttons-wrap">
           {
-            this.state.answers.map((item,i) => <QButton key={i} rid={correct.id}
-                                              elem={item} mode={ freeze }
-                                                      handler={this.handleBtn} />
-            )
+            answers.map((item,i) =>
+                <QButton key={i} rid={correct.id} elem={item} mode={ freeze }
+                      handler={this.handleBtn} /> )
           }
-          <QButton handler={this.handleClick} />
+          <SkipButton showRight={this.showRight} getNext={this.generateNext} mode={ freeze } />
         </Column>
       </Tile>
     )

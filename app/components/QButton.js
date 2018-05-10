@@ -11,13 +11,8 @@ export default class QButton extends Component {
   }
 
   handleClick(){
-    console.log( `hit! `)
     this.setState({ isPressed: true })
-
-    let { elem, rid } = this.props
-    let id = elem ? elem.id : 0
-
-    this.props.handler()
+    this.props.handler(this.props.elem.id)
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -26,14 +21,14 @@ export default class QButton extends Component {
 
   render(){
     let { elem, rid, mode } = this.props
-    let id = elem ? elem.id : 0
+    let { isPressed } = this.state
     return (
       <Column>
-        <Button
-          isColor={ this.state.isPressed && (id === rid ? 'success': 'danger') }
-          isStatic={ !this.state.isPressed && mode }
-          onClick={this.handleClick}>
-          { elem ? elem.original: "Skip" }
+        <Button disabled={ isPressed ? true : false } className={`btn-${elem.id}`}
+          isColor={ isPressed && (elem.id === rid ? 'success': 'danger') }
+          isStatic={ !isPressed && mode }
+          onClick={this.handleClick} >
+          { elem.original }
         </Button>
       </Column>
     )
