@@ -4,6 +4,7 @@ import { Columns, Column } from 'bloomer'
 import QMenu from './QMenu'
 import Home from './Home'
 import Mode2 from './Mode2'
+import Mode3 from './Mode3'
 
 class App extends Component {
 
@@ -16,6 +17,7 @@ class App extends Component {
           </Column>
           <Route exact path="/" component={Home} />
           <Route path="/choose" component={Mode2} />
+          <Route path="/split" component={Mode3} />
         </Columns>
       </Router>
     )

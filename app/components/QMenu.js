@@ -14,6 +14,7 @@ class QMenu extends Component {
           <MenuList>
               <li><NavLink exact to="/" activeClassName="is-active">Home</NavLink></li>
               <li><NavLink to="/choose" activeClassName="is-active">Game Mode 2</NavLink></li>
+              <li><NavLink to="/split" activeClassName="is-active">Game Mode 3</NavLink></li>
           </MenuList>
       </Menu>
     )
