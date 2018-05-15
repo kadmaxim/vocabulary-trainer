@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Columns, Column, Tile } from 'bloomer'
 import _ from 'lodash/collection'
-import QButton from './QButton'
+import QButton from './QButton3'
 import DB from './../db'
 
 export default class Mode3 extends Component {
@@ -11,7 +11,7 @@ export default class Mode3 extends Component {
     this.handleBtn = this.handleBtn.bind(this)
   }
   componentDidMount(){
-      this.generateNext();
+      this.generateAll();
   }
 
   showRight(){
@@ -22,15 +22,15 @@ export default class Mode3 extends Component {
     console.log(all)
   }
 
-  generateNext(){
+  generateAll(){
     let answers = _.sampleSize(DB, 4)
     this.setState({ answers })
   }
 
   render(){
     let { correct, freeze, answers } = this.state
-    let iconClass = !this.state.hideImg ? "fa fa-2x fa-eye" : "fa fa-2x fa-eye-slash"
-    return (
+    
+	return (
       <Tile>
         <Column isSize='1/2' className="buttons-wrap">
         {

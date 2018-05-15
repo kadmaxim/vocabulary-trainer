@@ -6,9 +6,14 @@ import Home from './Home'
 import Mode2 from './Mode2'
 import Mode3 from './Mode3'
 
+
+import { Button } from 'bloomer'
+import { connect } from 'react-redux';
+
 class App extends Component {
 
   render(){
+	  console.log(this.props.testStore)
     return (
       <Router>
         <Columns>
@@ -24,4 +29,9 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(
+	state => ({
+		testStore: state
+	}),
+	dispatch => ({})
+)(App);

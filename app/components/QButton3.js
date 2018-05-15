@@ -11,12 +11,9 @@ export default class QButton extends Component {
   }
 
   handleClick(){
-    this.setState({ isPressed: true })
-    this.props.handler(this.props.elem.id)
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    return prevState.isPressed && nextProps.mode ? {} : { isPressed: false }
+    let isPressed = !this.state.isPressed;
+    this.setState({ isPressed: isPressed })
+    this.props.handler(this.props.elem.id, isPressed)
   }
 
   render(){
@@ -25,6 +22,7 @@ export default class QButton extends Component {
     return (
       <Column>
         <Button disabled={"isPressed ? true : false " ? false : false} className={`btn-${elem.id}`}
+          isOutlined = { isPressed }
           isColor={ isPressed && (elem.id === rid ? 'success': 'danger') }
           isStatic={ !isPressed && mode }
           onClick={this.handleClick} >
