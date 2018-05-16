@@ -5,7 +5,8 @@ module.exports = {
   mode: 'development',
   entry: './app/index.js',
   devServer: {
-    contentBase: path.join(__dirname, "app")
+    contentBase: path.join(__dirname, "app"),
+      historyApiFallback: true
   },
   output: {
     filename: 'bundle.js',
