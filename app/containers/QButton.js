@@ -8,9 +8,9 @@ export default connect(
     rid: state.correct.id
   }),
   dispatch => ({
-    handler: answer => {
+    handleClick: answerID => {
       dispatch({ type: 'SET_FREEZE', payload: true });
-      dispatch({ type: 'GIVE_ANSWER', payload: answer });
+      dispatch({ type: 'GIVE_ANSWER', payload: answerID });
     }
   })
 )(Mode2);

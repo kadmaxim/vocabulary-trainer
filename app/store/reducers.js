@@ -14,6 +14,15 @@ export function words_list(state = {}, action) {
       return Object.assign({}, state, {
         freeze: action.payload
       });
+    case 'GIVE_ANSWER':
+      return Object.assign({}, state, {
+        wordsList: state.wordsList.map(answer => {
+          if (answer.id === action.payload) {
+            answer = Object.assign({}, answer, { isPressed: true });
+          }
+          return answer;
+        })
+      });
       break;
     default:
       return state;
