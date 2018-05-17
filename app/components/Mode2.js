@@ -1,65 +1,77 @@
-import React, { Component } from 'react'
-import { Columns, Column, Image, Title, Tile, Icon } from 'bloomer'
-import _ from 'lodash/collection'
-import QButton from './QButton'
-import SkipButton from './SkipButton'
-import DB from './../db'
+import React, { Component } from 'react';
+import { Columns, Column, Image, Title, Tile, Icon } from 'bloomer';
+import WordsList from './../containers/WordsList';
+import SkipButton from './SkipButton';
 
-export default class Mode2 extends Component {
-  constructor(props){
-    super(props)
-    this.showRight = this.showRight.bind(this)
-    this.handleBtn = this.handleBtn.bind(this)
-    this.handleImg = this.handleImg.bind(this)
-    this.generateNext = this.generateNext.bind(this)
-    this.state = { answers: [], correct: {}, freeze: false, hideImg: false }
-  }
-  componentDidMount(){
-      this.generateNext();
+class Mode2 extends Component {
+  constructor(props) {
+    super(props);
+    this.showRight = this.showRight.bind(this);
+    this.handleImg = this.handleImg.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
+
+    this.props.generateNext(4);
   }
 
-  showRight(){
-    document.querySelector(`.btn-${this.state.correct.id}`).click()
+  showRight() {
+    document.querySelector(`.btn-${this.props.correct.id}`).click();
+    this.props.freezeAll(true);
   }
 
-  generateNext(){
-    let answers = _.sampleSize(DB, 4)
-    let correct = _.sample(answers)
-    let freeze = false;
-    this.setState({ answers, correct, freeze })
+  handleImg() {
+    this.setState({
+      hideImg: !this.state.hideImg
+    });
   }
 
-  handleBtn(id, e){
-    this.setState({freeze: true})
-    console.log(id)
+  handlePlay() {
+    responsiveVoice.speak(this.props.correct.translation);
   }
 
-  handleImg(){
-      this.setState({ hideImg: !this.state.hideImg })
-  }
+  render() {
+    let { correct, freeze, answers, hideImg } = this.props;
 
-  render(){
-    let { correct, freeze, answers } = this.state
-    let iconClass = !this.state.hideImg ? "fa fa-2x fa-eye" : "fa fa-2x fa-eye-slash"
+    if (answers === undefined) return false;
+
+    let iconClass = !hideImg ? 'fa fa-2x fa-eye' : 'fa fa-2x fa-eye-slash';
     return (
       <Tile>
-        <Column isSize='1/2' className="thumb-wrap">
-          <Title hasTextAlign="centered">{correct.translation}</Title>
+        <Column isSize="1/2" className="thumb-wrap">
+          <Title hasTextAlign="centered"> {correct.translation} </Title>{' '}
           <div className="has-text-centered">
-            <Icon isSize="large" className={iconClass} onClick={this.handleImg} title="Show tip"/>
+            <Icon
+              isSize="large"
+              className={iconClass}
+              onClick={this.handleImg}
+              title="Show tip"
+            />
+            <Icon
+              isSize="large"
+              className="fa fa-play fa-2x"
+              onClick={this.handlePlay}
+              title="Play tip"
+            />
           </div>
-          <Image isSize='256x256' src={correct.img_url && !this.state.hideImg ? correct.img_url: 'https://via.placeholder.com/256x256'} />
+          <Image
+            isSize="256x256"
+            src={
+              correct.img_url && !hideImg
+                ? correct.img_url
+                : 'https://via.placeholder.com/256x256'
+            }
+          />
         </Column>
-        <Column isSize='1/2' className="buttons-wrap">
-          {
-            answers.map((item,i) =>
-                <QButton key={i} rid={correct.id} elem={item} mode={ freeze }
-                      handler={this.handleBtn} /> )
-          }
-          <SkipButton showRight={this.showRight} getNext={this.generateNext} mode={ freeze } />
+        <Column isSize="1/2" className="buttons-wrap">
+          <WordsList />
+          <SkipButton
+            showRight={this.showRight}
+            getNext={this.props.generateNext}
+            mode={freeze}
+          />
         </Column>
       </Tile>
-    )
+    );
   }
-
 }
+
+export default Mode2;
