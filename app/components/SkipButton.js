@@ -14,7 +14,6 @@ export default class SkipButton extends Component {
 
   render() {
     let { mode } = this.props;
-    console.log(mode);
     return (
       <Column>
         <Button

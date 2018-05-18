@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Columns, Column, Tile } from 'bloomer';
 import _ from 'lodash/collection';
-import QButton from './QButton3';
+import QButton from './QButton';
 
 export default class Mode3 extends Component {
   constructor(props) {

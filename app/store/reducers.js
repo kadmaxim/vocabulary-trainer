@@ -24,6 +24,11 @@ export function words_list(state = {}, action) {
         })
       });
       break;
+    case 'TOGGLE_IMG':
+      return Object.assign({}, state, {
+        showImg: !state.showImg
+      });
+      break;
     default:
       return state;
   }
