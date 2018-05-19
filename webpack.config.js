@@ -5,7 +5,8 @@ module.exports = {
   mode: 'development',
   entry: './app/index.js',
   devServer: {
-    contentBase: path.join(__dirname, "app")
+    contentBase: path.join(__dirname, "app"),
+    historyApiFallback: true
   },
   output: {
     filename: 'bundle.js',
@@ -15,7 +16,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.sass$/,
+        test: /\.s[ac]ss$/,
         loader: "style-loader!css-loader!sass-loader",
       },
       {
@@ -29,6 +30,10 @@ module.exports = {
         options: {
           presets: ['react']
         }
+      },
+      {
+        test: /\.(jpe|jpg|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+        loader: "file-loader"
       }
     ]
   },
