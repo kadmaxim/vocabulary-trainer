@@ -1,14 +1,10 @@
-import Mode2 from './../components/Mode2';
+import Mode3 from './../components/Mode3';
 import { connect } from 'react-redux';
 
 import DB from './../store/db';
 import _ from 'lodash/collection';
 
-const mapStateToProps = state => ({
-  freeze: state.freeze,
-  answers: state.wordsList,
-  correct: state.correct
-});
+const mapStateToProps = state => ({});
 
 const mapDispathToProps = dispatch => ({
   generateNext: (listSize = 4) => {
@@ -19,7 +15,7 @@ const mapDispathToProps = dispatch => ({
     dispatch({ type: 'SET_CORRECT', payload: correct });
     dispatch({ type: 'SET_FREEZE', payload: false });
   },
-  freezeAll: mode => dispatch({ type: 'SET_FREEZE', payload: mode })
+  setWordsList: answers => dispatch({ type: 'SET_WORDS', payload: answers })
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Mode2);
+export default connect(mapStateToProps, mapDispathToProps)(Mode3);

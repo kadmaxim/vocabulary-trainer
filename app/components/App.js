@@ -4,7 +4,7 @@ import { Columns, Column } from 'bloomer';
 import QMenu from './QMenu';
 import Home from './Home';
 import Mode2 from './../containers/Mode2';
-import Mode3 from './Mode3';
+import Mode3 from './../containers/Mode3';
 
 export default function App(props) {
   return (

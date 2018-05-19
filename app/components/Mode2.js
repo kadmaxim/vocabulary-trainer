@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Columns, Column, Image, Title, Tile, Icon } from 'bloomer';
+import { Columns, Column, Title, Tile } from 'bloomer';
 import WordsList from './../containers/WordsList';
 import SkipButton from './SkipButton';
 import Thumbnail from './../containers/Thumbnail';
@@ -29,7 +29,7 @@ class Mode2 extends Component {
           <Thumbnail />
         </Column>
         <Column isSize="1/2" className="buttons-wrap">
-          <WordsList />
+          <WordsList handleClick={this.props.handleClick} />
           <SkipButton
             showRight={this.showRight}
             getNext={this.props.generateNext}

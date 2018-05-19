@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Columns, Column, Image, Title, Tile, Icon } from 'bloomer';
+import { Column, Image, Icon } from 'bloomer';
 import WordsList from './../containers/WordsList';
 import SkipButton from './SkipButton';
 

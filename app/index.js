@@ -12,8 +12,8 @@ import { words_list } from './store/reducers';
 
 const store = createStore(words_list);
 
-store.subscribe(a => {
-  console.log('Subscribe: ', a, store.getState());
+store.subscribe(() => {
+  console.log('Subscribe: ', store.getState());
 });
 
 ReactDOM.render(
