@@ -38,7 +38,8 @@ class Gamemode1 extends Component {
             document.getElementById("g1CheckButton").className = "button has-background-success";
             setTimeout(() => {
                 document.getElementById("g1CheckButton").className = "button";
-                this.selectVocable()}, 1500);
+                this.selectVocable()
+            }, 1500);
 
         } else {
             console.log("Die Antwort ist falsch");
@@ -46,7 +47,7 @@ class Gamemode1 extends Component {
             document.getElementById("g1CheckButton").className = "button has-background-danger";
             setTimeout(() => {
                 document.getElementById("g1CheckButton").className = "button";
-                this.selectVocable()}, 1500);
+            }, 1500);
         }
     }
 

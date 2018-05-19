@@ -34,11 +34,22 @@ class Gamemode4 extends Component {
 
         if (answer.toUpperCase().localeCompare(this.state.SelectedVocab.Translation.toUpperCase()) === 0) {
             console.log("Die Antwort ist korrekt");
-            //getVocabulary();
-            this.selectVocable();
+
             document.getElementById("answerBox").value = "";
+
+            document.getElementById("g4CheckButton").className = "button has-background-success";
+            setTimeout(() => {
+                document.getElementById("g4CheckButton").className = "button";
+                this.selectVocable()
+            }, 1500);
+
         } else {
             console.log("Die Antwort ist falsch");
+
+            document.getElementById("g4CheckButton").className = "button has-background-danger";
+            setTimeout(() => {
+                document.getElementById("g4CheckButton").className = "button";
+            }, 1500);
         }
     }
 
@@ -72,7 +83,9 @@ class Gamemode4 extends Component {
                         </div>
                         <div className="button" onClick={this.skipQuestion.bind(this)}>
                             Überspringen
-
+                        </div>
+                        <div className="button" id="g4CheckButton">
+                            Korrekt?
                         </div>
                     </div>
                 </div>
