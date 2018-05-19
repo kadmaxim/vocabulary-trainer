@@ -7,7 +7,8 @@ class Gamemode1 extends Component {
 
         this.state = {
             Vocabulary: Vocabulary,
-            SelectedVocab: []
+            SelectedVocab: [],
+            ButtonClass: "button"
         }
     };
 
@@ -15,7 +16,6 @@ class Gamemode1 extends Component {
         //this.getVocabulary();
         this.setState({Vocabulary: Vocabulary});
         this.selectVocable();
-        //this.setState({SelectedVocab: this.selectVocable()});
     }
 
     selectVocable() {
@@ -34,9 +34,19 @@ class Gamemode1 extends Component {
         if (answer.Translation.toUpperCase().localeCompare(this.state.SelectedVocab.Translation.toUpperCase()) === 0) {
             console.log("Die Antwort ist korrekt");
             //getVocabulary();
-            this.selectVocable();
+
+            document.getElementById("g1CheckButton").className = "button has-background-success";
+            setTimeout(() => {
+                document.getElementById("g1CheckButton").className = "button";
+                this.selectVocable()}, 1500);
+
         } else {
             console.log("Die Antwort ist falsch");
+
+            document.getElementById("g1CheckButton").className = "button has-background-danger";
+            setTimeout(() => {
+                document.getElementById("g1CheckButton").className = "button";
+                this.selectVocable()}, 1500);
         }
     }
 
@@ -74,6 +84,11 @@ class Gamemode1 extends Component {
                 <div className="container has-text-right">
                     <div className="button" onClick={this.skipQuestion.bind(this)}>
                         Überspringen
+                    </div>
+                    <div>
+                        <div className="button" id="g1CheckButton">
+                            Korrekt?
+                        </div>
                     </div>
                 </div>
             </div>

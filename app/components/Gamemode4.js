@@ -1,74 +1,48 @@
 import React, {Component} from 'react';
+import Vocabulary from '../DB Mockup/Vocabulary';
 
 class Gamemode4 extends Component {
     constructor() {
         super();
-        this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+
+        this.state = {
+            Vocabulary: Vocabulary,
+            SelectedVocab: []
+        }
     };
 
-    forceUpdateHandler() {
-        this.forceUpdate();
-    };
+    componentDidMount() {
+        //this.getVocabulary();
+        this.setState({Vocabulary: Vocabulary});
+        this.selectVocable();
+    }
+
+    selectVocable() {
+        let getRandomNumber = Math.floor(Math.random() * 4);
+        this.setState({SelectedVocab: this.state.Vocabulary[getRandomNumber]});
+    }
+
+    skipQuestion() {
+        console.log("Skip");
+        this.setState({TestField: "Test"});
+        //getVocabulary();
+        this.selectVocable();
+    }
+
+    answerQuestion() {
+        let answer = document.getElementById("answerBox").value;
+
+        if (answer.toUpperCase().localeCompare(this.state.SelectedVocab.Translation.toUpperCase()) === 0) {
+            console.log("Die Antwort ist korrekt");
+            //getVocabulary();
+            this.selectVocable();
+            document.getElementById("answerBox").value = "";
+        } else {
+            console.log("Die Antwort ist falsch");
+        }
+    }
 
     render() {
-        let Vocabulary;
-        let getRandomNumber;
-        let saveSearchedVocable = "";
-
-        function getVocabulary() {
-            Vocabulary = [
-                {
-                    Id: 1,
-                    Original: "Hund",
-                    Translation: "Dog",
-                    ImageURL: "https://cdn.pixabay.com/photo/2018/05/08/01/11/dalmation-dog-3382090__340.jpg"
-                },
-                {
-                    Id: 2,
-                    Original: "Katze",
-                    Translation: "Cat",
-                    ImageURL: "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492__340.jpg"
-                },
-                {
-                    Id: 3,
-                    Original: "Pferd",
-                    Translation: "Horse",
-                    ImageURL: "https://cdn.pixabay.com/photo/2018/05/04/21/49/the-horse-3375107__340.jpg"
-                },
-                {
-                    Id: 4,
-                    Original: "Huhn",
-                    Translation: "Chicken",
-                    ImageURL: "https://cdn.pixabay.com/photo/2018/04/24/21/28/the-hen-3348170__340.jpg"
-                }
-            ];
-
-            console.log("Got new Vocabulary");
-        }
-
-        getVocabulary();
-        selectVocable();
-
-        function selectVocable() {
-            getRandomNumber = Math.floor(Math.random() * 4);
-            saveSearchedVocable = Vocabulary[getRandomNumber];
-        }
-
-        function skipQuestion() {
-            console.log("Skip");
-            getVocabulary();
-            selectVocable();
-        }
-
-        function answerQuestion() {
-            if (document.getElementById("answerBox").value.toUpperCase().localeCompare(saveSearchedVocable.Translation.toUpperCase()) === 0) {
-                console.log("Die Antwort ist korrekt");
-                getVocabulary();
-                selectVocable();
-            } else {
-                console.log("Die Antwort ist falsch");
-            }
-        }
 
         return (
 
@@ -79,10 +53,10 @@ class Gamemode4 extends Component {
 
                 <div className="container">
                     <div className="container has-text-centered">
-                        {saveSearchedVocable.Original}
+                        {this.state.SelectedVocab.Original}
 
                         <figure className="image">
-                            <img src={saveSearchedVocable.ImageURL}/>
+                            <img src={this.state.SelectedVocab.ImageURL}/>
                         </figure>
                     </div>
 
@@ -93,15 +67,12 @@ class Gamemode4 extends Component {
                                style={{height: 40}}
                                placeholder="Antwort hier eingeben"
                         />
-                        <div className="button" onClick={answerQuestion}>
+                        <div className="button" onClick={this.answerQuestion.bind(this)}>
                             Antwort überprüfen
                         </div>
-                        <div className="button" onClick={skipQuestion}>
+                        <div className="button" onClick={this.skipQuestion.bind(this)}>
                             Überspringen
 
-                        </div>
-                        <div className="button" onClick={this.forceUpdateHandler}>
-                            Neuladen
                         </div>
                     </div>
                 </div>
