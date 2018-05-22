@@ -3,9 +3,9 @@ const path = require('path');
 module.exports = {
   watch: true,
   mode: 'development',
-  entry: './app/index.js',
+  entry: './app/public/index.js',
   devServer: {
-    contentBase: path.join(__dirname, "app"),
+    contentBase: path.join(__dirname, 'app', 'public'),
     historyApiFallback: true
   },
   output: {
@@ -17,24 +17,24 @@ module.exports = {
     rules: [
       {
         test: /\.s[ac]ss$/,
-        loader: "style-loader!css-loader!sass-loader",
+        loader: 'style-loader!css-loader!sass-loader'
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader",
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         options: {
           presets: ['react']
         }
       },
       {
         test: /\.(jpe|jpg|png|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: "file-loader"
+        loader: 'file-loader'
       }
     ]
-  },
+  }
 };

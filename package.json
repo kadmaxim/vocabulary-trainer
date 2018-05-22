@@ -4,12 +4,14 @@
   "description": "Vocabulary Trainer. Javascript SS-18.",
   "main": "index.js",
   "scripts": {
+    "api": "node app",
     "dev": "webpack-dev-server --open",
     "build": "webpack"
   },
   "repository": {
     "type": "git",
-    "url": "https://r-n-d.informatik.hs-augsburg.de:8080/javascript-ss18/vocabulary-trainer.git"
+    "url":
+      "https://r-n-d.informatik.hs-augsburg.de:8080/javascript-ss18/vocabulary-trainer.git"
   },
   "author": "Maksym Kadatskyi <maksym.kadatskyi@hs-augsburg.de>",
   "contributors": [
@@ -34,6 +36,7 @@
   "dependencies": {
     "bloomer": "^0.6.3",
     "bulma": "^0.7.1",
+    "express": "^4.16.3",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.10",
     "react": "^16.3.2",
