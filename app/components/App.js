@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Columns, Column } from 'bloomer';
 import QMenu from './QMenu';
 import Home from './Home';
+import Gamemode1 from './../containers/Gamemode1';
 import Mode2 from './../containers/Mode2';
 import Mode3 from './../containers/Mode3';
+import Gamemode4 from './../containers/Gamemode4';
 
 export default function App(props) {
   return (
@@ -14,8 +16,10 @@ export default function App(props) {
           <QMenu />
         </Column>
         <Route exact path="/" component={Home} />
-        <Route path="/choose" component={Mode2} />
+          <Route path="/Gamemode1" component={Gamemode1} />
+          <Route path="/choose" component={Mode2} />
         <Route path="/split" component={Mode3} />
+          <Route path="/Gamemode4" component={Gamemode4} />
       </Columns>
     </Router>
   );
