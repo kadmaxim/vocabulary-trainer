@@ -7,26 +7,40 @@ class Gamemode4 extends Component {
 
         this.state = {
             Vocabulary: Vocabulary,
-            SelectedVocab: []
+            SelectedVocab: [],
+            SelectedVocabs: []
         }
     };
 
     componentDidMount() {
-        //this.getVocabulary();
         this.setState({Vocabulary: Vocabulary});
-        this.selectVocable();
+        this.selectVocables();
     }
 
-    selectVocable() {
-        let getRandomNumber = Math.floor(Math.random() * 4);
-        this.setState({SelectedVocab: this.state.Vocabulary[getRandomNumber]});
+    readTip() {
+        let translation = this.state.SelectedVocab.Translation;
+        responsiveVoice.speak(translation);
+    }
+
+    selectVocables() {
+        let VocabCount = this.state.Vocabulary.length - 1;
+        let savedVocabs = [];
+
+        for (let i = 0; i < 1; i++) {
+            let getRandomNumber = Math.floor(Math.random() * VocabCount);
+            savedVocabs.push(this.state.Vocabulary[getRandomNumber]);
+        }
+
+        this.setState({SelectedVocabs: savedVocabs});
+
+        let getRandomNumber = Math.floor(Math.random());
+        this.setState({SelectedVocab: savedVocabs[getRandomNumber]});
+
     }
 
     skipQuestion() {
         console.log("Skip");
-        this.setState({TestField: "Test"});
-        //getVocabulary();
-        this.selectVocable();
+        this.selectVocables();
     }
 
     answerQuestion() {
@@ -35,20 +49,22 @@ class Gamemode4 extends Component {
         if (answer.toUpperCase().localeCompare(this.state.SelectedVocab.Translation.toUpperCase()) === 0) {
             console.log("Die Antwort ist korrekt");
 
+            this.readTip();
+
             document.getElementById("answerBox").value = "";
 
-            document.getElementById("g4CheckButton").className = "button has-background-success";
+            document.getElementById("g4Container").className = "container has-background-success";
             setTimeout(() => {
-                document.getElementById("g4CheckButton").className = "button";
-                this.selectVocable()
+                document.getElementById("g4Container").className = "container";
+                this.selectVocables()
             }, 1500);
 
         } else {
             console.log("Die Antwort ist falsch");
 
-            document.getElementById("g4CheckButton").className = "button has-background-danger";
+            document.getElementById("g4Container").className = "container has-background-danger";
             setTimeout(() => {
-                document.getElementById("g4CheckButton").className = "button";
+                document.getElementById("g4Container").className = "container";
             }, 1500);
         }
     }
@@ -63,29 +79,45 @@ class Gamemode4 extends Component {
                 <br/>
 
                 <div className="container">
-                    <div className="container has-text-centered">
-                        {this.state.SelectedVocab.Original}
+                    <div className="container" id="g4Container">
+                        <div className="container has-text-centered">
+                            <div className="column">
+                                {this.state.SelectedVocab.Original}
 
-                        <figure className="image">
-                            <img src={this.state.SelectedVocab.ImageURL}/>
-                        </figure>
+                                <figure className="image is-2by1">
+                                    <img src={this.state.SelectedVocab.ImageURL}/>
+                                </figure>
+                            </div>
+                        </div>
+                        <br/>
                     </div>
 
-                    <br/>
-
                     <div className="container has-text-right">
-                        <input className="input" id="answerBox"
-                               style={{height: 40}}
-                               placeholder="Antwort hier eingeben"
-                        />
-                        <div className="button" onClick={this.answerQuestion.bind(this)}>
-                            Antwort überprüfen
-                        </div>
-                        <div className="button" onClick={this.skipQuestion.bind(this)}>
-                            Überspringen
-                        </div>
-                        <div className="button" id="g4CheckButton">
-                            Korrekt?
+                        <div className="field is-grouped is-grouped-right">
+                            <p className="control">
+                                <input className="input" id="answerBox"
+                                       style={{height: 40}}
+                                       placeholder="Antwort hier eingeben"
+                                />
+                            </p>
+
+                            <p className="control">
+                                <a className="button" onClick={this.answerQuestion.bind(this)}>
+                                    Antwort überprüfen
+                                </a>
+                            </p>
+
+                            <p className="control">
+                                <a className="button" onClick={this.readTip.bind(this)}>
+                                    Tipp
+                                </a>
+                            </p>
+
+                            <p className="control">
+                                <a className="button" onClick={this.skipQuestion.bind(this)}>
+                                    Überspringen
+                                </a>
+                            </p>
                         </div>
                     </div>
                 </div>

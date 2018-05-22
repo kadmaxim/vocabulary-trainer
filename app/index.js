@@ -6,6 +6,7 @@ import {Container, Box} from 'bloomer';
 import App from './components/App'
 import Gamemode1 from './components/Gamemode1'
 import Gamemode4 from './components/Gamemode4'
+import LoginRegistration from "./components/LoginRegistration";
 
 ReactDOM.render(
     <Router>
@@ -13,6 +14,9 @@ ReactDOM.render(
             <p className="menu">
                 <div className="menu-list">
                     <Link to="/Home">Home</Link>
+                </div>
+                <div className="menu-list">
+                    <Link to="/LoginRegistration">Login & Registration</Link>
                 </div>
                 <p className="menu-label">
                     Gamemodes
@@ -31,6 +35,7 @@ ReactDOM.render(
             <Route path="/Home" component={App}/>
             <Route path="/Gamemode1" component={Gamemode1}/>
             <Route path="/Gamemode4" component={Gamemode4}/>
+            <Route path="/LoginRegistration" component={LoginRegistration}/>
         </div>
     </Router>,
     document.getElementById('root'),
