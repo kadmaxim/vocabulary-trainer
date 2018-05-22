@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cec0b9ea-0537-409f-b56e-7d60bd500e5d" name="Default" comment="Save">
-      <change afterPath="$PROJECT_DIR$/app/components/LoginRegistration.js" afterDir="false" />
+    <list default="true" id="cec0b9ea-0537-409f-b56e-7d60bd500e5d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DB Mockup/Vocabulary.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/DB Mockup/Vocabulary.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Gamemode1.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Gamemode1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Gamemode4.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Gamemode4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -54,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gamemode1.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Gamemode1.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/Gamemode1.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="526">
@@ -62,6 +55,15 @@
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -135,6 +137,7 @@
         <option value="$PROJECT_DIR$/app/components/App.js" />
         <option value="$PROJECT_DIR$/app/components/LoginRegistration.js" />
         <option value="$PROJECT_DIR$/app/components/Gamemode1.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -253,12 +256,20 @@
       <workItem from="1526495320888" duration="2004000" />
       <workItem from="1526894048034" duration="595000" />
       <workItem from="1526925149992" duration="2833000" />
-      <workItem from="1526990899206" duration="146000" />
+      <workItem from="1526990899206" duration="840000" />
     </task>
+    <task id="LOCAL-00001" summary="Save">
+      <created>1526991073688</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1526991073688</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54872000" />
+    <option name="totallyTimeSpent" value="55566000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -273,9 +284,9 @@
     <frame x="1680" y="0" width="1767" height="1407" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49874687" visible="true" weight="0.20416425" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49874687" visible="true" weight="0.20416425" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32905295" />
+      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32905295" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.09319233" side_tool="true" weight="0.13032581" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32932693" />
@@ -336,16 +347,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/components/Gamemode1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/components/Gamemode4.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -692,6 +693,13 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
         </state>
       </provider>
     </entry>
