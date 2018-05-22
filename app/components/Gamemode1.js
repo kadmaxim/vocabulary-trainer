@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Vocabulary from '../DB Mockup/Vocabulary';
+import {Columns, Column, Title, Tile} from 'bloomer';
 
 class Gamemode1 extends Component {
     constructor() {
@@ -57,18 +58,18 @@ class Gamemode1 extends Component {
 
             this.readTip();
 
-            document.getElementById("g1Container").className = "container has-background-success";
+            document.getElementById("g1Container").className = "has-background-success";
             setTimeout(() => {
-                document.getElementById("g1Container").className = "container";
+                document.getElementById("g1Container").className = "";
                 this.selectVocables()
             }, 1500);
 
         } else {
             console.log("Die Antwort ist falsch");
 
-            document.getElementById("g1Container").className = "container has-background-danger";
+            document.getElementById("g1Container").className = "has-background-danger";
             setTimeout(() => {
-                document.getElementById("g1Container").className = "container";
+                document.getElementById("g1Container").className = "";
             }, 1500);
         }
     }
@@ -89,40 +90,46 @@ class Gamemode1 extends Component {
         });
 
         return (
-            <div className="container">
-                <h1 className="panel-heading has-text-centered">Gamemode 1</h1>
-                <br/>
-                <div className="container" id="g1Container">
-                    <div className="container has-text-centered">
-                        {this.state.SelectedVocab.Original}
+            <Tile>
+                <div className="columns is-multiline">
+                    <div className="column is-12">
+                        <div className="title has-text-centered">{this.state.SelectedVocab.Original}</div>
                     </div>
 
-                    <div className="container">
-                        <div className="column">
-                            <div className="columns is-multiline">
-                                {VocabularyList}
+                    <div className="column is-12">
+                        <div id="g1Container">
+
+                            <div>
+                                <div className="column">
+                                    <div className="columns is-multiline">
+                                        {VocabularyList}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="container">
-                    <div className="field is-grouped is-grouped-right">
-                        <p className="control">
-                            <a className="button" onClick={this.skipQuestion.bind(this)}>
-                                Überspringen
-                            </a>
-                        </p>
-                        <p className="control">
-                            <a className="button" onClick={this.readTip.bind(this)}>
-                                Tipp
-                            </a>
-                        </p>
+                    <div className="column is-12">
+                        <div>
+                            <div className="field is-grouped is-grouped-right">
+                                <p className="control">
+                                    <a className="button" onClick={this.skipQuestion.bind(this)}>
+                                        Überspringen
+                                    </a>
+                                </p>
+                                <p className="control">
+                                    <a className="button" onClick={this.readTip.bind(this)}>
+                                        Tipp
+                                    </a>
+                                </p>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                    </div>
+
                 </div>
-            </div>
+            </Tile>
         )
     }
 }

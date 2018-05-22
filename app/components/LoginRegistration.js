@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Columns, Column, Title, Tile} from 'bloomer';
 
 class LoginRegistration extends Component {
     constructor() {
@@ -14,45 +15,50 @@ class LoginRegistration extends Component {
     register() {
         console.log("Registrieren")
     }
-    
+
     render() {
         return (
-            <div className="container">
-                <h1 className="panel-heading has-text-centered">Login & Registration</h1>
-
-                <br/>
-
-                <div className="container">
-
-                    <div className="field is-grouped is-grouped-centered">
-                        <p className="control">
-                            <input className="input" id="userName"
-                                   style={{height: 40}}
-                                   placeholder="Nutzername"
-                            />
-                        </p>
-                        <p className="control">
-                            <input className="input" type="password" id="userPassword"
-                                   style={{height: 40}}
-                                   placeholder="Passwort"
-                            />
-                        </p>
+            <Tile>
+                <div className="columns is-multiline">
+                    <div className="column is-12">
+                        <div className="title has-text-centered"> Login & Registration</div>
                     </div>
 
-                    <div className="field is-grouped is-grouped-centered">
-                        <p className="control">
-                            <a className="button" onClick={this.login.bind(this)} style={{width: 194}}>
-                                Login
-                            </a>
-                        </p>
-                        <p className="control">
-                            <a className="button" onClick={this.register.bind(this)} style={{width: 194}}>
-                                Registrieren
-                            </a>
-                        </p>
+                    <div className="column is-12">
+
+                        <div className="field is-grouped is-grouped-centered">
+                            <p className="control">
+                                <input className="input" id="userName"
+                                       style={{height: 40}}
+                                       placeholder="Nutzername"
+                                />
+                            </p>
+                            <p className="control">
+                                <input className="input" type="password" id="userPassword"
+                                       style={{height: 40}}
+                                       placeholder="Passwort"
+                                />
+                            </p>
+                        </div>
+
+                        <div className="field is-grouped is-grouped-centered">
+                            <p className="control">
+                                <a className="button" onClick={this.login.bind(this)} style={{width: 194}}>
+                                    Login
+                                </a>
+                            </p>
+                            <p className="control">
+                                <a className="button" onClick={this.register.bind(this)} style={{width: 194}}>
+                                    Registrieren
+                                </a>
+                            </p>
+                        </div>
                     </div>
+
                 </div>
-            </div>)
+
+
+            </Tile>)
     }
 }
 

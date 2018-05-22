@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Vocabulary from '../DB Mockup/Vocabulary';
+import {Columns, Column, Title, Tile} from 'bloomer';
 
 class Gamemode4 extends Component {
     constructor() {
@@ -53,18 +54,18 @@ class Gamemode4 extends Component {
 
             document.getElementById("answerBox").value = "";
 
-            document.getElementById("g4Container").className = "container has-background-success";
+            document.getElementById("g4Container").className = "has-background-success";
             setTimeout(() => {
-                document.getElementById("g4Container").className = "container";
+                document.getElementById("g4Container").className = "";
                 this.selectVocables()
             }, 1500);
 
         } else {
             console.log("Die Antwort ist falsch");
 
-            document.getElementById("g4Container").className = "container has-background-danger";
+            document.getElementById("g4Container").className = "has-background-danger";
             setTimeout(() => {
-                document.getElementById("g4Container").className = "container";
+                document.getElementById("g4Container").className = "";
             }, 1500);
         }
     }
@@ -72,56 +73,55 @@ class Gamemode4 extends Component {
     render() {
 
         return (
+            <Title>
+                <div>
+                    <br/>
 
-            <div className="container">
-                <h1 className="panel-heading has-text-centered">Gamemode 4</h1>
+                    <div>
+                        <div id="g4Container">
+                            <div className="has-text-centered">
+                                <div className="column">
+                                    {this.state.SelectedVocab.Original}
 
-                <br/>
-
-                <div className="container">
-                    <div className="container" id="g4Container">
-                        <div className="container has-text-centered">
-                            <div className="column">
-                                {this.state.SelectedVocab.Original}
-
-                                <figure className="image is-2by1">
-                                    <img src={this.state.SelectedVocab.ImageURL}/>
-                                </figure>
+                                    <figure className="image is-2by1">
+                                        <img src={this.state.SelectedVocab.ImageURL}/>
+                                    </figure>
+                                </div>
                             </div>
+                            <br/>
                         </div>
-                        <br/>
-                    </div>
 
-                    <div className="container has-text-right">
-                        <div className="field is-grouped is-grouped-right">
-                            <p className="control">
-                                <input className="input" id="answerBox"
-                                       style={{height: 40}}
-                                       placeholder="Antwort hier eingeben"
-                                />
-                            </p>
+                        <div className="has-text-right">
+                            <div className="field is-grouped is-grouped-right">
+                                <p className="control">
+                                    <input className="input" id="answerBox"
+                                           style={{height: 40}}
+                                           placeholder="Antwort hier eingeben"
+                                    />
+                                </p>
 
-                            <p className="control">
-                                <a className="button" onClick={this.answerQuestion.bind(this)}>
-                                    Antwort überprüfen
-                                </a>
-                            </p>
+                                <p className="control">
+                                    <a className="button" onClick={this.answerQuestion.bind(this)}>
+                                        Antwort überprüfen
+                                    </a>
+                                </p>
 
-                            <p className="control">
-                                <a className="button" onClick={this.readTip.bind(this)}>
-                                    Tipp
-                                </a>
-                            </p>
+                                <p className="control">
+                                    <a className="button" onClick={this.readTip.bind(this)}>
+                                        Tipp
+                                    </a>
+                                </p>
 
-                            <p className="control">
-                                <a className="button" onClick={this.skipQuestion.bind(this)}>
-                                    Überspringen
-                                </a>
-                            </p>
+                                <p className="control">
+                                    <a className="button" onClick={this.skipQuestion.bind(this)}>
+                                        Überspringen
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Title>
         )
     }
 }
