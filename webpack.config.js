@@ -6,11 +6,14 @@ module.exports = {
   entry: './app/public/index.js',
   devServer: {
     contentBase: path.join(__dirname, 'app', 'public'),
+    proxy: {
+      '/api': 'http://localhost:3000'
+    },
     historyApiFallback: true
   },
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'app/dist'),
+    path: path.resolve(__dirname, 'app', 'public', 'dist'),
     publicPath: '/dist/'
   },
   module: {
