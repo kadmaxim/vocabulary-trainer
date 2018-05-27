@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://r-n-d.informatik.hs-augsburg.de:8080/javascript-ss18/vocabulary-trainer.git"
+    "url":
+      "https://r-n-d.informatik.hs-augsburg.de:8080/javascript-ss18/vocabulary-trainer.git"
   },
   "author": "Maksym Kadatskyi <maksym.kadatskyi@hs-augsburg.de>",
   "contributors": [
@@ -33,6 +34,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bloomer": "^0.6.3",
     "body-parser": "^1.18.3",
     "bulma": "^0.7.1",
