@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { Column, Image, Icon } from 'bloomer';
-import WordsList from './../containers/WordsList';
-import SkipButton from './SkipButton';
+import { Column, Icon } from 'bloomer';
 
-export default class Thumbnail extends Component {
+export default class Answer extends Component {
   constructor(props) {
     super(props);
     this.handlePlay = this.handlePlay.bind(this);
@@ -25,25 +23,11 @@ export default class Thumbnail extends Component {
         <div className="has-text-centered">
           <Icon
             isSize="large"
-            className={iconClass}
-            onClick={toggleImg}
-            title="Tipp anzeigen"
-          />
-          <Icon
-            isSize="large"
             className="fa fa-play fa-2x"
             onClick={this.handlePlay}
             title="Tipp abspielen"
           />
         </div>
-        <Image
-          isSize="256x256"
-          src={
-            correct.img_url && !hideImg
-              ? correct.img_url
-              : 'https://via.placeholder.com/256x256'
-          }
-        />
       </Column>
     );
   }

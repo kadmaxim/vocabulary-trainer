@@ -20,7 +20,7 @@ export default class SkipButton extends Component {
           onClick={this.handleClick}
           isColor={mode ? 'info' : ''}
           isOutlined={!mode}>
-          {mode ? 'Next' : 'Show answer'}
+          {mode ? 'Weiter' : 'Antwort anzeigen'}
         </Button>
       </Column>
     );

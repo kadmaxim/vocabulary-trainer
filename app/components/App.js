@@ -3,10 +3,10 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {Columns, Column} from 'bloomer';
 import QMenu from './QMenu';
 import Home from './Home';
-import Gamemode1 from './../components/Gamemode1';
-import Mode2 from './../containers/Mode2';
-import Mode3 from './../containers/Mode3';
-import Gamemode4 from './../components/Gamemode4';
+import Gamemode1 from './../containers/Gamemode1';
+import Gamemode2 from '../containers/Gamemode2';
+import Gamemode3 from '../containers/Gamemode3';
+import Gamemode4 from './../containers/Gamemode4';
 import LoginRegistration from './../components/LoginRegistration';
 
 export default function App(props) {
@@ -19,8 +19,8 @@ export default function App(props) {
                 <Route exact path="/LoginRegistration" component={LoginRegistration}/>
                 <Route exact path="/" component={Home}/>
                 <Route path="/Gamemode1" component={Gamemode1}/>
-                <Route path="/choose" component={Mode2}/>
-                <Route path="/split" component={Mode3}/>
+                <Route path="/Gamemode2" component={Gamemode2}/>
+                <Route path="/Gamemode3" component={Gamemode3}/>
                 <Route path="/Gamemode4" component={Gamemode4}/>
             </Columns>
         </Router>

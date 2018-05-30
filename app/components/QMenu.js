@@ -9,37 +9,37 @@ export default function QMenu(props) {
                 <p className="menu-label">Login & Registration</p>
                 <li>
                     <NavLink exact to="/LoginRegistration" activeClassName="is-active">
-                        Login & Registration
+                        Login & Registrierung
                     </NavLink>
                 </li>
 
-                <p className="menu-label">Main Menu</p>
+                <p className="menu-label">Hauptmenu</p>
                 <li>
                     <NavLink exact to="/" activeClassName="is-active">
                         Home
                     </NavLink>
                 </li>
 
-                <p className="menu-label">Gamemodes</p>
+                <p className="menu-label">Spielmodi</p>
                 <ul className="menu-list">
                     <li>
                         <NavLink to="/Gamemode1" activeClassName="is-active">
-                            Game Mode 1
+                            Spielmodus 1
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/choose" activeClassName="is-active">
-                            Game Mode 2
+                        <NavLink to="/Gamemode2" activeClassName="is-active">
+                            Spielmodus 2
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/split" activeClassName="is-active">
-                            Game Mode 3
+                        <NavLink to="/Gamemode3" activeClassName="is-active">
+                            Spielmodus 3
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to="/Gamemode4" activeClassName="is-active">
-                            Game Mode 4
+                            Spielmodus 4
                         </NavLink>
                     </li>
                 </ul>

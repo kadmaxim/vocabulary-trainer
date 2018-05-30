@@ -3,6 +3,6 @@ import { Title, Tile } from 'bloomer';
 
 export default () => (
   <Tile hasTextAlign="centered" isChild>
-    <Title>Welcome!</Title>
+    <Title>Wilkommen!</Title>
   </Tile>
 );

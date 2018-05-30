@@ -1,4 +1,4 @@
-import Mode2 from './../components/Mode2';
+import Gamemode2 from '../components/Gamemode2';
 import { connect } from 'react-redux';
 
 import DB from './../store/db';
@@ -22,4 +22,4 @@ const mapDispathToProps = dispatch => ({
   freezeAll: mode => dispatch({ type: 'SET_FREEZE', payload: mode })
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Mode2);
+export default connect(mapStateToProps, mapDispathToProps)(Gamemode2);

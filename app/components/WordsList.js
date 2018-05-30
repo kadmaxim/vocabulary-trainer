@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {  } from 'react';
 import QButton from './../containers/QButton';
 
 export default function WordsList(props) {
