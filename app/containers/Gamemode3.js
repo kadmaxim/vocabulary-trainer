@@ -1,4 +1,4 @@
-import Mode3 from './../components/Mode3';
+import Gamemode3 from '../components/Gamemode3';
 import { connect } from 'react-redux';
 
 import DB from './../store/db';
@@ -18,4 +18,4 @@ const mapDispathToProps = dispatch => ({
   setWordsList: answers => dispatch({ type: 'SET_WORDS', payload: answers })
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Mode3);
+export default connect(mapStateToProps, mapDispathToProps)(Gamemode3);

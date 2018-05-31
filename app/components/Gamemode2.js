@@ -4,7 +4,7 @@ import WordsList from './../containers/WordsList';
 import SkipButton from './SkipButton';
 import Thumbnail from './../containers/Thumbnail';
 
-class Mode2 extends Component {
+class Gamemode2 extends Component {
   constructor(props) {
     super(props);
     this.showRight = this.showRight.bind(this);
@@ -41,4 +41,4 @@ class Mode2 extends Component {
   }
 }
 
-export default Mode2;
+export default Gamemode2;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Column, Tile } from 'bloomer';
 import WordsList from './../containers/WordsList';
 
-export default class Mode3 extends Component {
+export default class Gamemode3 extends Component {
   constructor(props) {
     super(props);
 

@@ -19,7 +19,7 @@ store.subscribe(() => {
 ReactDOM.render(
   <Provider store={store}>
     <Container>
-      <Title hasTextAlign="centered"> Vocabulary Trainer </Title>
+      <Title hasTextAlign="centered"> Vokabel Trainer </Title>
       <Box className="main-wrap">
         <App />
       </Box>
