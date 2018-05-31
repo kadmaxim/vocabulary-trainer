@@ -6,9 +6,11 @@ export default function QInput(props) {
     return (
         <div>
             <Input placeholder="Antwort hier eingeben" id="g4AnswerInput"/>
+
             <Button onClick={handleClick.bind(this, elem.id)}>
                 {elem.isPressed ? elem.original : "Antwort anzeigen "}
             </Button>
         </div>
+
     );
 }

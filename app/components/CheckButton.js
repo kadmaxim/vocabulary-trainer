@@ -15,12 +15,14 @@ export default class CheckButton extends Component {
     render() {
         let {mode} = this.props;
         return (
-            <Button
-                onClick={this.handleClick}
-                isColor={mode ? 'info' : ''}
-                isOutlined={!mode}>
-                {mode ? 'Weiter' : 'Antwort überprüfen'}
-            </Button>
+            <div>
+                <Button
+                    onClick={this.handleClick}
+                    isColor={mode ? 'info' : ''}
+                    isOutlined={!mode}>
+                    {mode ? 'Weiter' : 'Antwort überprüfen'}
+                </Button>
+            </div>
         );
     }
 }

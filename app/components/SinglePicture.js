@@ -6,17 +6,17 @@ export default function SinglePicture(props) {
     let {answers, shuffle} = props;
 
     return (
-        <Columns className="is-multiline">
+        <div>
             {answers
                 ? answers.map((item, i) => (
-                    <Column className="is-half" key={i}>
+                    <div key={i}>
                         <figure>
                             <Image src={item.img_url} className="is-2by1"/>
                         </figure>
                         <QInput key={i} elem={item} shuffled={shuffle}/>
-                    </Column>
+                    </div>
                 ))
                 : ''}
-        </Columns>
+        </div>
     );
 }
