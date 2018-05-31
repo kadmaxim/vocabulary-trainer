@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button, Column } from 'bloomer';
+import React, {Component} from 'react';
+import {Button, Column} from 'bloomer';
 
 export default class CheckButton extends Component {
     constructor(props) {
@@ -8,21 +8,19 @@ export default class CheckButton extends Component {
     }
 
     handleClick() {
-        let { showRight, getNext, mode } = this.props;
+        let {showRight, getNext, mode} = this.props;
         mode ? getNext() : showRight();
     }
 
     render() {
-        let { mode } = this.props;
+        let {mode} = this.props;
         return (
-            <Column>
-                <Button
-                    onClick={this.handleClick}
-                    isColor={mode ? 'info' : ''}
-                    isOutlined={!mode}>
-                    {mode ? 'Weiter' : 'Antwort überprüfen'}
-                </Button>
-            </Column>
+            <Button
+                onClick={this.handleClick}
+                isColor={mode ? 'info' : ''}
+                isOutlined={!mode}>
+                {mode ? 'Weiter' : 'Antwort überprüfen'}
+            </Button>
         );
     }
 }

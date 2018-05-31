@@ -19,8 +19,19 @@ class Gamemode4 extends Component {
          }*/
     };
 
+    generateNext() {
+        this.props.generateNext(1);
+        document.getElementById("g4AnswerInput").style.backgroundColor = "";
+    }
+
     showRight() {
-        document.querySelector(`.input-${this.props.correct.id}`).click();
+
+        if (document.getElementById("g4AnswerInput").value === this.props.correct.original) {
+            document.getElementById("g4AnswerInput").style.backgroundColor = "green";
+        } else {
+            document.getElementById("g4AnswerInput").style.backgroundColor = "red";
+        }
+
         this.props.freezeAll(true);
     }
 
@@ -95,16 +106,11 @@ class Gamemode4 extends Component {
                         <Answer/>
                     </Column>
 
-                    <Column className="is-full">
+                    <Column className="is-full is-grouped-multiline">
                         <SinglePicture handleClick={this.props.handleClick}/>
-                    </Column>
-
-                    <Column className="is-full">
-
-
                         <CheckButton
                             showRight={this.showRight}
-                            getNext={this.props.generateNext}
+                            getNext={this.generateNext}
                             mode={freeze}
                         />
 

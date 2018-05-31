@@ -4,11 +4,11 @@ import {Input, Column, Button} from 'bloomer';
 export default function QInput(props) {
     let {elem, rid, mode, handleClick, shuffled} = props;
     return (
-        <Column>
-            <Input value={elem.isPressed ? elem.original : ""} placeholder="Antwort hier eingeben"/>
+        <div>
+            <Input placeholder="Antwort hier eingeben" id="g4AnswerInput"/>
             <Button onClick={handleClick.bind(this, elem.id)}>
-                Antwort anzeigen
+                {elem.isPressed ? elem.original : "Antwort anzeigen "}
             </Button>
-        </Column>
+        </div>
     );
 }
