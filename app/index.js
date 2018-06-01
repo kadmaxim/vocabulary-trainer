@@ -1,29 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'bulma';
-import 'font-awesome/css/font-awesome.css';
-import './main.scss';
-import { Container, Box, Title } from 'bloomer';
-import App from './components/App';
+const express = require('express');
+const bodyParser = require('body-parser');
+const url = require('url');
+const session = require('express-session');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const multer = require('multer');
+const path = require('path');
 
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { words_list } from './store/reducers';
+const PORT = process.env.PORT || 3000;
 
-const store = createStore(words_list);
+const app = express();
 
-store.subscribe(() => {
-  console.log('Subscribe: ', store.getState());
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(multer().array());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Container>
-      <Title hasTextAlign="centered"> Vokabel Trainer </Title>
-      <Box className="main-wrap">
-        <App />
-      </Box>
-    </Container>
-  </Provider>,
-  document.getElementById('root')
+app.set('port', PORT);
+app.use(
+  session({
+    secret: 'vocabulary-trainer',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 * 12 }
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./api/config/passport')(passport);
+require('./api/routes')(app, passport);
+
+app.listen(app.get('port'), () =>
+  console.log(`Server is running on port ${app.get('port')}`)
 );

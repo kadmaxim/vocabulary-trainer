@@ -1,7 +1,7 @@
 import Gamemode2 from '../components/Gamemode2';
 import { connect } from 'react-redux';
 
-import DB from './../store/db';
+import axios from 'axios';
 import _ from 'lodash/collection';
 
 const mapStateToProps = state => ({
@@ -12,12 +12,15 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   generateNext: (listSize = 4) => {
-    let answers = _.sampleSize(DB, listSize);
-    let correct = _.sample(answers);
+    axios.get(`/api/words`).then(res => {
+      let DB = res.data;
+      let answers = _.sampleSize(DB, listSize);
+      let correct = _.sample(answers);
 
-    dispatch({ type: 'SET_WORDS', payload: answers });
-    dispatch({ type: 'SET_CORRECT', payload: correct });
-    dispatch({ type: 'SET_FREEZE', payload: false });
+      dispatch({ type: 'SET_WORDS', payload: answers });
+      dispatch({ type: 'SET_CORRECT', payload: correct });
+      dispatch({ type: 'SET_FREEZE', payload: false });
+    });
   },
   freezeAll: mode => dispatch({ type: 'SET_FREEZE', payload: mode })
 });
