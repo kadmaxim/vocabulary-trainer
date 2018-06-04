@@ -24,13 +24,13 @@ class Gamemode1 extends Component {
         if (correct === undefined) return false;
 
         return (
-            <Tile>
+            <Column className="is-three-quarters">
                 <Columns className="is-multiline">
-                    <Column className="is-full">
+                    <Column className="is-12">
                         <Title hasTextAlign="centered"> {correct.translation} </Title>
                         <Answer/>
                     </Column>
-                    <Column className="buttons-wrap">
+                    <Column className="buttons-wrap is-12">
                         <PictureList handleClick={this.props.handleClick}/>
                         <SkipButton
                             showRight={this.showRight}
@@ -39,7 +39,7 @@ class Gamemode1 extends Component {
                         />
                     </Column>
                 </Columns>
-            </Tile>
+            </Column>
         )
     }
 }
