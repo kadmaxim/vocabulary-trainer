@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Columns, Column, Title, Tile} from 'bloomer';
+import {Columns, Column, Title, Container} from 'bloomer';
 import SinglePicture from './../containers/SinglePicture'
 import CheckButton from './CheckButton';
 import Answer from "./../containers/Answer";
@@ -35,23 +35,27 @@ class Gamemode4 extends Component {
         if (correct === undefined) return false;
 
         return (
-            <Tile>
+            <Column className="is-three-quarters">
                 <Columns className="is-multiline">
-                    <Column className="is-full">
+                    <Column className="is-12">
                         <Title hasTextAlign="centered"> {correct.translation} </Title>
                         <Answer/>
                     </Column>
 
-                    <Column className="is-full">
+                    <Column className="is-half is-offset-one-quarter">
+                        <Column >
                         <SinglePicture handleClick={this.props.handleClick}/>
+                        </Column>
+                        <Column className="buttons-wrap">
                         <CheckButton
                             showRight={this.showRight}
                             getNext={this.continue.bind(this)}
                             mode={freeze}
                         />
+                        </Column>
                     </Column>
                 </Columns>
-            </Tile>
+            </Column>
         )
     }
 }

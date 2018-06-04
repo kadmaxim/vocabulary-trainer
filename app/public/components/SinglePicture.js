@@ -11,11 +11,12 @@ export default function SinglePicture(props) {
                 ? answers.map((item, i) => (
                     <div key={i}>
                         <figure>
-                            <Image src={item.img_url} className="is-2by1"/>
+                            <Image src={item.img_url}/>
                         </figure>
+                        <br/>
                         <QInput key={i} elem={item} shuffled={shuffle}/>
                     </div>
-                ))
+                ) )
                 : ''}
         </div>
     );
