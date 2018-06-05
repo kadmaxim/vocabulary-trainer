@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => ({
   mode: state.freeze,
   answers: state.wordsList,
-  rid: state.correct.id
+  rid: state.correct._id
 });
 
 const mapDispathToProps = dispatch => ({
