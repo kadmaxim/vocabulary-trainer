@@ -12,6 +12,11 @@ export default function QMenu(props) {
                         Home
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink exact to="/LoginRegistration" activeClassName="is-active">
+                        Login & Registrierung
+                    </NavLink>
+                </li>
             </MenuList>
             <MenuLabel>Spielmodi</MenuLabel>
             <MenuList>

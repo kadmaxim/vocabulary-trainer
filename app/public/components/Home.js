@@ -1,8 +1,23 @@
-import React from 'react';
-import { Title, Tile } from 'bloomer';
+import React, {Component} from 'react';
+import {Title, Tile, Column} from 'bloomer';
+import AllWords from './../containers/AllWords'
+import AddWord from './../containers/AddWord'
 
-export default () => (
-  <Tile hasTextAlign="centered" isChild>
-    <Title>Wilkommen!</Title>
-  </Tile>
-);
+class Home extends Component {
+    constructor(props) {
+        super(props);
+    };
+
+    render() {
+
+        return (
+            <Tile hasTextAlign="centered" isChild>
+                <Title>Wilkommen!</Title>
+                <AllWords/>
+                <AddWord/>
+            </Tile>
+        )
+    }
+}
+
+export default Home
