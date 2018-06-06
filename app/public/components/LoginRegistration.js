@@ -1,20 +1,26 @@
 import React, {Component} from 'react';
 import {Columns, Column, Title, Tile} from 'bloomer';
+import LoginButton from "./../containers/LoginButton";
+import RegisterButton from "./../containers/RegisterButton";
 
 class LoginRegistration extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            userName: "",
+            userPassword: ""
+        }
 
     };
 
-    login() {
-        console.log("Login");
-        console.log(document.getElementById("userName").value + " " + document.getElementById("userPassword").value)
-    }
+    updateUserName(e){
+        this.setState({userName: e.target.value});
+    };
 
-    register() {
-        console.log("Registrieren")
-    }
+    updateUserPassword(e){
+        this.setState({userPassword: e.target.value});
+    };
 
     render() {
         return (
@@ -28,33 +34,37 @@ class LoginRegistration extends Component {
 
                         <div className="field is-grouped is-grouped-centered">
                             <p className="control">
-                                <input className="input" id="userName"
+                                <input className="input"
                                        style={{height: 40}}
+                                       onChange={this.updateUserName.bind(this)}
+                                       value={this.props.userName}
                                        placeholder="Nutzername"
                                 />
                             </p>
                             <p className="control">
-                                <input className="input" type="password" id="userPassword"
+                                <input className="input" type="password"
                                        style={{height: 40}}
+                                       onChange={this.updateUserPassword.bind(this)}
+                                       value={this.props.userPassword}
                                        placeholder="Passwort"
                                 />
                             </p>
                         </div>
 
                         <div className="field is-grouped is-grouped-centered">
-                            <p className="control">
-                                <a className="button" onClick={this.login.bind(this)} style={{width: 194}}>
-                                    Login
-                                </a>
-                            </p>
-                            <p className="control">
-                                <a className="button" onClick={this.register.bind(this)} style={{width: 194}}>
-                                    Registrieren
-                                </a>
-                            </p>
+
+                            <div className="control">
+                                <LoginButton
+                                    data={this.state}
+                                />
+                            </div>
+                            <div className="control">
+                                <RegisterButton
+                                    data={this.state}
+                                />
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
 
