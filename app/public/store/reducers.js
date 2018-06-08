@@ -17,7 +17,7 @@ export function words_list(state = {}, action) {
     case 'GIVE_ANSWER':
       return Object.assign({}, state, {
         wordsList: state.wordsList.map(answer => {
-          if (answer.id === action.payload) {
+          if (answer._id === action.payload) {
             answer = Object.assign({}, answer, { isPressed: true });
           }
           return answer;
