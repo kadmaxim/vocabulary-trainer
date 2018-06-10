@@ -10,13 +10,13 @@ const mapDispathToProps = dispatch => ({
   handleClick: data => {
     console.log(data);
     axios
-      .post(`/api/users/login`, {
+      .post(`/api/login`, {
         username: data.userName,
         password: data.userPassword
       })
       .then(res => {
         console.log(res);
-      });
+      }, error => console.log(error.message));
   }
 });
 

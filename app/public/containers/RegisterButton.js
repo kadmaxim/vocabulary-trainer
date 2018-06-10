@@ -9,12 +9,17 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
     handleClick: (data) => {
-       axios.put(`/api/user`,{
+      axios
+        .post(`/api/check`)
+        .then(res => {
+          console.log(res);
+        }, error => console.log(error));
+      /* axios.put(`/api/user`,{
             userName: data.userName,
             password: data.userPassword
         }).then(res => {
             console.log(res);
-        });
+        });*/
     },
 });
 

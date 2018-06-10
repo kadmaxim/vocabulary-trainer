@@ -1,5 +1,7 @@
 const Words = require('./models/words');
 const Users = require('./models/users');
+const Profile = require('./models/profiles');
+const userWords = require('./models/userWords');
 
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
 
@@ -16,17 +18,12 @@ module.exports = function(app, passport) {
   app.post('/api/user/:id', Users.update);
   app.delete('/api/user/:id', Users.del);
 
-  app.post('/api/user-words/', Users.saveWords);
-  app.post('/api/user-words/:userID/:wordID', Users.updateMyWord);
-
-  // TODO: Views for the following routes
-  // app.get('/admin', Users.home);
-  app.get('/api/login', Users.login);
+  app.post('/api/user-words/', userWords.saveWords);
+  app.post('/api/user-words/:userID/:wordID', userWords.updateMyWord);
   app.post(
     '/api/login',
     passport.authenticate('local', { failureRedirect: '/LoginRegistration' }),
-    Users.auth
+    Profile.auth,
   );
-  // app.get('/admin/profile', ensureLoggedIn('/admin/login'), Users.profile);
-  //app.get('/logout', ensureLoggedIn('/admin/login'), Users.logout);
+  app.post('/api/check', ensureLoggedIn(''), Profile.check);
 };
