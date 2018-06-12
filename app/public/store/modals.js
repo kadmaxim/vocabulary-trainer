@@ -2,12 +2,12 @@ export default function modals(state = {}, action) {
   switch (action.type) {
     case 'SHOW_MODAL':
       return Object.assign({}, state, {
-        isShowModal: true,
+        isShowModal: true
       });
       break;
     case 'CLOSE_MODAL':
       return Object.assign({}, state, {
-        isShowModal: false,
+        isShowModal: false
       });
       break;
     default:
