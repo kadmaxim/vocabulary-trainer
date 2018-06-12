@@ -10,19 +10,19 @@ import Gamemode4 from './../containers/Gamemode4';
 import LoginRegistration from './../containers/LoginRegistration';
 
 export default function App(props) {
-    return (
-        <Router>
-            <Columns>
-                <Column isSize="1/4">
-                    <QMenu/>
-                </Column>
-                <Route exact path="/LoginRegistration" component={LoginRegistration}/>
-                <Route exact path="/" component={Home}/>
-                <Route path="/Gamemode1" component={Gamemode1}/>
-                <Route path="/Gamemode2" component={Gamemode2}/>
-                <Route path="/Gamemode3" component={Gamemode3}/>
-                <Route path="/Gamemode4" component={Gamemode4}/>
-            </Columns>
-        </Router>
-    );
+  return (
+    <Router>
+      <Columns>
+        <Column isSize="1/4">
+          <QMenu />
+        </Column>
+        <Route exact path="/LoginRegistration" component={LoginRegistration} />
+        <Route exact path="/" component={Home} />
+        <Route path="/Gamemode1" component={Gamemode1} />
+        <Route path="/Gamemode2" component={Gamemode2} />
+        <Route path="/Gamemode3" component={Gamemode3} />
+        <Route path="/Gamemode4" component={Gamemode4} />
+      </Columns>
+    </Router>
+  );
 }
