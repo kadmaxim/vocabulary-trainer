@@ -6,11 +6,8 @@ import './main.scss';
 import { Container, Box, Title } from 'bloomer';
 import App from './components/App';
 
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { words_list } from './store/reducers';
-
-const store = createStore(words_list);
+import store from './store'
 
 store.subscribe(() => {
   console.log('Subscribe: ', store.getState());

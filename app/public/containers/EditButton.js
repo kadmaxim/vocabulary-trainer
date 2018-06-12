@@ -1,22 +1,32 @@
 import EditButton from './../components/EditButton';
 import {connect} from 'react-redux';
+import {ADD_WORD} from "../actions/types";
 
 import axios from 'axios';
 import _ from "lodash/collection";
+import {FETCH_WORDS} from "../actions/types";
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    words_list: state.words_list.item
+});
 
 const mapDispathToProps = dispatch => ({
-    handleClick: (data) => {
+    handleClick(wordData){
         axios.post(`/api/word/:id`, {
-            _id: data._id,
-            original: data.original,
-            translation: data.translation,
-            img_url: data.img_url
+            _id: wordData._id,
+            original: wordData.original,
+            translation: wordData.translation,
+            img_url: wordData.img_url
         }).then(res => {
             console.log(res);
         });
     },
+    addWordStore(wordData) {
+        dispatch({
+            type: ADD_WORD,
+            payload: wordData
+        })
+    }
 });
 
 export default connect(mapStateToProps, mapDispathToProps)(EditButton);
