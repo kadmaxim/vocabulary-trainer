@@ -8,10 +8,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispathToProps = dispatch => ({
-    handleClick: answerID => {
-        dispatch({ type: 'SET_FREEZE', payload: true });
-        dispatch({ type: 'GIVE_ANSWER', payload: answerID });
-    }
+  handleClick: answerID => {
+    dispatch({ type: 'SET_FREEZE', payload: true });
+    dispatch({ type: 'GIVE_ANSWER', payload: answerID });
+  }
 });
 
 export default connect(mapStateToProps, mapDispathToProps)(Mode2);

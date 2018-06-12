@@ -7,10 +7,10 @@ export default function QButton(props) {
     <Column>
       <Button
         disabled={elem.isPressed ? true : false}
-        className={`btn-${elem.id}`}
-        isColor={elem.isPressed && (elem.id === rid ? 'success' : 'danger')}
+        className={`btn-${elem._id}`}
+        isColor={elem.isPressed && (elem._id === rid ? 'success' : 'danger')}
         isStatic={!elem.isPressed && mode}
-        onClick={handleClick.bind(this, elem.id)}>
+        onClick={handleClick.bind(this, elem._id)}>
         {shuffled ? elem.translation : elem.original}
       </Button>
     </Column>
