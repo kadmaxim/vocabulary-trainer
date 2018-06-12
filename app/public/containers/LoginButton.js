@@ -1,22 +1,30 @@
 import LoginButton from './../components/LoginButton';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import axios from 'axios';
 import _ from 'lodash/collection';
+import {LOGIN} from '../actions/types';
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  loginRegistration: state.loginRegistration
+});
 
 const mapDispathToProps = dispatch => ({
-  handleClick: data => {
-    console.log(data);
+  handleClick: loginData => {
     axios
-      .post(`/api/login`, {
-        username: data.userName,
-        password: data.userPassword
+      .post(`/api/user`, {
+        userName: loginData.userName,
+        password: loginData.userPassword
       })
       .then(res => {
-        console.log(res);
-      }, error => console.log(error.message));
+        return Array.from(res.data);
+      })
+      .then(login =>
+        dispatch({
+          type: LOGIN,
+          payload: login
+        })
+      );
   }
 });
 

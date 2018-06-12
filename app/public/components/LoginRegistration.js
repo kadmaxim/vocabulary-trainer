@@ -3,22 +3,19 @@ import {Columns, Column, Title, Tile} from 'bloomer';
 import LoginButton from './../containers/LoginButton';
 import RegisterButton from './../containers/RegisterButton';
 
-class LoginRegistration extends Component {
+export default class LoginRegistration extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      userName: '',
-      userPassword: ''
-    };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  updateUserName(e) {
-    this.setState({userName: e.target.value});
-  }
+  handleClick() {}
 
-  updateUserPassword(e) {
-    this.setState({userPassword: e.target.value});
+  handleChange(e) {
+    this.props.loginRegistration[e.target.name] = e.target.value;
+    this.props.addLoginRegistrationStore(this.props.loginRegistration);
   }
 
   render() {
@@ -65,5 +62,3 @@ class LoginRegistration extends Component {
     );
   }
 }
-
-export default LoginRegistration;

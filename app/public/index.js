@@ -3,16 +3,11 @@ import ReactDOM from 'react-dom';
 import 'bulma';
 import 'font-awesome/css/font-awesome.css';
 import './main.scss';
-import { Container, Box, Title } from 'bloomer';
+import {Container, Box, Title} from 'bloomer';
 import App from './components/App';
-import ModalWrap from './containers/ModalWrap';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducers from './store/reducers';
 
-const store = createStore(reducers);
-
-window.store = store;
+import {Provider} from 'react-redux';
+import store from './store';
 
 store.subscribe(() => {
   console.log('Subscribe: ', store.getState());
@@ -32,5 +27,5 @@ ReactDOM.render(
       <ModalWrap />
     </Container>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

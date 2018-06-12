@@ -5,9 +5,9 @@ import DB from './../store/db';
 import _ from 'lodash/collection';
 
 const mapStateToProps = state => ({
-  freeze: state.freeze,
-  answers: state.wordsList,
-  correct: state.correct
+  freeze: state.words_list.freeze,
+  answers: state.words_list.wordsList,
+  correct: state.words_list.correct
 });
 
 const mapDispathToProps = dispatch => ({

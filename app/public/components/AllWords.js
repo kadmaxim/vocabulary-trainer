@@ -1,37 +1,29 @@
 import React, {Component} from 'react';
 
-import {Title, Tile, Column, Button} from 'bloomer';
-import EditButton from "./../containers/EditButton";
-import DeleteButton from "./../containers/DeleteButton";
+import {Title, Tile, Column, Columns, Button, Table} from 'bloomer';
+import EditButton from './../containers/EditButton';
+import DeleteButton from './../containers/DeleteButton';
 
-export default class AllWords extends Component {
-    constructor(props) {
-        super(props);
+class AllWords extends Component {
+  componentWillMount() {
+    this.props.getAllWords();
+  }
 
-        this.state = {
-            allWords: [],
-        };
-    }
-
-    async componentDidMount() {
-        this.setState({allWords: await this.props.getAllWords()});
-    }
-
-    render() {
-        const {allWords} = this.state;
-        console.log(allWords);
-
-        return (
-            Array.from(allWords).map((item, key) => (
-                <div key={key}>
-                    <div>{item.translation}</div>
-                    <div>{item.original}</div>
-                    <EditButton
-                        data={item}/>
-                    <DeleteButton
-                        data={item}/>
-                </div>
-            ))
-        )
-    };
+  render() {
+    const postWords = this.props.words_list.map(word => (
+      <Columns key={word._id}>
+        <div className="column is-3">{word.translation}</div>
+        <div className="column is-3">{word.original}</div>
+        <div className="column is-1">
+          <EditButton data={word} />
+        </div>
+        <div className="column is-1">
+          <DeleteButton data={word} />
+        </div>
+      </Columns>
+    ));
+    return <div>{postWords}</div>;
+  }
 }
+
+export default AllWords;

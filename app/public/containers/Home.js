@@ -4,11 +4,7 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import _ from 'lodash/collection';
 
-const mapStateToProps = state => ({
-  freeze: state.freeze,
-  answers: state.wordsList,
-  correct: state.correct
-});
+const mapStateToProps = state => ({});
 
 const mapDispathToProps = dispatch => ({
   showModal: () => {
