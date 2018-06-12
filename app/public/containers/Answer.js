@@ -2,7 +2,7 @@ import Answer from './../components/Answer';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  correct: state.correct
+  correct: state.words_list.correct
 });
 
 const mapDispathToProps = dispatch => ({

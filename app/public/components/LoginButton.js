@@ -8,7 +8,7 @@ export default class LoginButton extends Component {
     }
 
     handleClick() {
-        this.props.handleClick(this.props.data);
+        this.props.handleClick(this.props.loginRegistration);
     }
 
     render() {

@@ -7,7 +7,7 @@ import Gamemode1 from './../containers/Gamemode1';
 import Gamemode2 from '../containers/Gamemode2';
 import Gamemode3 from '../containers/Gamemode3';
 import Gamemode4 from './../containers/Gamemode4';
-import LoginRegistration from './../components/LoginRegistration';
+import LoginRegistration from './../containers/LoginRegistration';
 
 export default function App(props) {
     return (
