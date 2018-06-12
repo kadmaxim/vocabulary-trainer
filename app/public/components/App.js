@@ -7,7 +7,6 @@ import Gamemode1 from './../containers/Gamemode1';
 import Gamemode2 from '../containers/Gamemode2';
 import Gamemode3 from '../containers/Gamemode3';
 import Gamemode4 from './../containers/Gamemode4';
-import LoginRegistration from './../containers/LoginRegistration';
 
 export default function App(props) {
   return (
@@ -17,7 +16,6 @@ export default function App(props) {
           <QMenu />
         </Column>
         <Route exact path="/" component={Home} />
-        <Route path="/LoginRegistration" component={LoginRegistration} />
         <Route path="/Gamemode1" component={Gamemode1} />
         <Route path="/Gamemode2" component={Gamemode2} />
         <Route path="/Gamemode3" component={Gamemode3} />

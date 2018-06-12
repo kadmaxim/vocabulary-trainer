@@ -5,12 +5,11 @@ module.exports = {
       user: req.user
     });
   },
-  logout: function(req, res) {
+  logout: function(req, res, next) {
     req.logout();
-    //res.redirect('/admin');
+    res.send('logged out', 201);
   },
   check: function(req, res) {
-    
-    res.json({ user: req.user });
+    res.json({user: req.user});
   }
 };

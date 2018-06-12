@@ -2,20 +2,20 @@ import {LOGIN, REGISTER} from './types';
 import axios from 'axios/index';
 
 export const login = loginData => dispatch => {
+  console.log('come here');
   axios
     .post(`/api/user`, {
       userName: loginData.userName,
       password: loginData.userPassword
     })
-    .then(res => {
-      return Array.from(res.data);
-    })
-    .then(login =>
+    .then(res => res.data)
+    .then(login => {
+      console.log(login);
       dispatch({
         type: LOGIN,
         payload: login
-      })
-    );
+      });
+    });
 };
 
 export const register = registerData => dispatch => {

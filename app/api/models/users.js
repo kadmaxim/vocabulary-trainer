@@ -5,13 +5,13 @@ const db = Mongo.db('users');
 module.exports = {
   add: function(req, res, next) {
     let user = {};
-    user.password = req.body.pass ? md5(req.body.pass) : '';
-    user.login = req.body.log ? req.body.log : '';
+    user.password = req.body.password ? md5(req.body.password) : '';
+    user.login = req.body.username ? req.body.username : '';
 
     db.then(collection => {
       collection.findOne({login: user.login}).then(obj => {
         if (obj !== null) {
-          res.json({status: 'error', message: 'User already exist'});
+          res.json({status: 'error', message: 'This username is unavailable'});
         } else {
           collection
             .insertOne(user)

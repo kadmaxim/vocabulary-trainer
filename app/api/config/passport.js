@@ -15,6 +15,7 @@ module.exports = function(passport) {
   passport.use(
     'local',
     new LocalStrategy(function(username, password, done) {
+      console.log(username, password);
       Users.findByName(username).then(user => {
         if (!user || user.password !== md5(password)) {
           return done(null, false);

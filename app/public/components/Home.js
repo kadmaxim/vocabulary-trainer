@@ -6,18 +6,28 @@ import AddWord from './../containers/AddWord';
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.props.checkAuth();
   }
 
   render() {
+    let {userName, showModal, logout} = this.props;
     return (
       <Tile hasTextAlign="centered" isChild>
-        <Title>
-          Wilkommen!
-          <Icon isAlign="right" onClick={this.props.showModal}>
-            <span className="fa fa-address-card" aria-hidden="true" />
-          </Icon>
-        </Title>
-
+        {!userName ? (
+          <Title>
+            Login & Register {'  '}
+            <Icon isAlign="right" onClick={showModal}>
+              <span className="fa fa-address-card" aria-hidden="true" />
+            </Icon>
+          </Title>
+        ) : (
+          <Title>
+            Wilkommen {userName}! {'  '}
+            <Icon isAlign="right" onClick={logout}>
+              <span className="fa fa-sign-out" aria-hidden="true" />
+            </Icon>
+          </Title>
+        )}
         <AllWords />
         <AddWord />
       </Tile>

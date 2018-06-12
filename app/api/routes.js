@@ -22,8 +22,9 @@ module.exports = function(app, passport) {
   app.post('/api/user-words/:userID/:wordID', userWords.updateMyWord);
   app.post(
     '/api/login',
-    passport.authenticate('local', { failureRedirect: '/LoginRegistration' }),
-    Profile.auth,
+    passport.authenticate('local', {failureRedirect: '/LoginRegistration'}),
+    Profile.auth
   );
   app.post('/api/check', ensureLoggedIn(''), Profile.check);
+  app.get('/api/logout', Profile.logout);
 };
