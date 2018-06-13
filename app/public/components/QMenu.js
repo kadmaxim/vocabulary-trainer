@@ -14,28 +14,32 @@ export default function QMenu(props) {
         </li>
       </MenuList>
       <MenuLabel>Spielmodi</MenuLabel>
-      <MenuList>
-        <li>
-          <NavLink to="/Gamemode1" activeClassName="is-active">
-            Spielmodus 1
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/Gamemode2" activeClassName="is-active">
-            Spielmodus 2
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/Gamemode3" activeClassName="is-active">
-            Spielmodus 3
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/Gamemode4" activeClassName="is-active">
-            Spielmodus 4
-          </NavLink>
-        </li>
-      </MenuList>
+      {props.userName ? (
+        <MenuList>
+          <li>
+            <NavLink to="/Gamemode1" activeClassName="is-active">
+              Spielmodus 1
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Gamemode2" activeClassName="is-active">
+              Spielmodus 2
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Gamemode3" activeClassName="is-active">
+              Spielmodus 3
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Gamemode4" activeClassName="is-active">
+              Spielmodus 4
+            </NavLink>
+          </li>
+        </MenuList>
+      ) : (
+        ''
+      )}
     </Menu>
   );
 }

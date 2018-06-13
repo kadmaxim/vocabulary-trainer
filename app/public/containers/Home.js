@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   showModal: () => {
-    dispatch({type: 'SHOW_MODAL'});
+    dispatch({type: 'SET_MODAL', payload: true});
   },
   checkAuth: () => {
     axios.post(`/api/check`).then(res => {

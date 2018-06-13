@@ -6,7 +6,6 @@ import AddWord from './../containers/AddWord';
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.props.checkAuth();
   }
 
   render() {

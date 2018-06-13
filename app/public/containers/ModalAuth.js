@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispathToProps = dispatch => ({
-  closeModal: () => dispatch({type: 'CLOSE_MODAL'}),
+  closeModal: () => dispatch({type: 'SET_MODAL', payload: false}),
   login: () => {
     document.querySelector('.username-help').innerText = '';
     let userLogin = document.querySelector('[name=login]').value;
@@ -26,6 +26,7 @@ const mapDispathToProps = dispatch => ({
             type: SAVE_USER,
             payload: userData
           });
+          dispatch({type: 'SET_MODAL', payload: false});
         },
         err => {
           document.querySelector('.username-help').innerText = err.message;
@@ -44,6 +45,8 @@ const mapDispathToProps = dispatch => ({
       .then(obj => {
         if (obj.status !== 'success') {
           document.querySelector('.username-help').innerText = obj.message;
+        } else {
+          document.querySelector('.login-btn').click();
         }
       });
   }

@@ -4,7 +4,7 @@ import 'bulma';
 import 'font-awesome/css/font-awesome.css';
 import './main.scss';
 import {Container, Box, Title} from 'bloomer';
-import App from './components/App';
+import App from './containers/App';
 import ModalAuth from './containers/ModalAuth';
 
 import {Provider} from 'react-redux';

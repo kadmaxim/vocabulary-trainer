@@ -55,7 +55,7 @@ export default function ModalAuth(props) {
         </ModalCardBody>
         <ModalCardFooter>
           <Column>
-            <Button isColor="success" onClick={login}>
+            <Button isColor="success" onClick={login} className="login-btn">
               Login
             </Button>
           </Column>
