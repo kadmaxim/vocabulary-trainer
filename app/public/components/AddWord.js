@@ -48,7 +48,7 @@ export default class AddWord extends Component {
       <div>
         <span
           onClick={this.openModal}
-          className="icon fa fa-2x fa-plus spanMargin"
+          className="icon fa fa-2x fa-plus spanMargin has-text-success"
           title="Eintrag hinzufügen"
         />
 

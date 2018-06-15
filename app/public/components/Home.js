@@ -10,23 +10,30 @@ class Home extends Component {
 
   render() {
     let {userName, showModal, logout} = this.props;
-    return (
+    return !userName ? (
       <Tile hasTextAlign="centered" isChild>
-        {!userName ? (
-          <Title>
-            Login & Register {'  '}
-            <Icon isAlign="right" onClick={showModal}>
-              <span className="fa fa-address-card" aria-hidden="true" />
-            </Icon>
-          </Title>
-        ) : (
-          <Title>
-            Wilkommen {userName}! {'  '}
-            <Icon isAlign="right" onClick={logout}>
-              <span className="fa fa-sign-out" aria-hidden="true" />
-            </Icon>
-          </Title>
-        )}
+        <Title>
+          Login & Register {'  '}
+          <Icon isAlign="right" onClick={showModal}>
+            <span
+              className="fa fa-address-card has-text-info"
+              aria-hidden="true"
+            />
+          </Icon>
+        </Title>
+      </Tile>
+    ) : (
+      <Tile hasTextAlign="centered" isChild>
+        <Title>
+          Wilkommen {userName}! {'  '}
+          <Icon isAlign="right" onClick={logout} title="Beenden">
+            <span
+              className="fa fa-sign-out has-text-primary"
+              aria-hidden="true"
+            />
+          </Icon>
+        </Title>
+
         <AllWords />
         <AddWord />
       </Tile>

@@ -13,7 +13,7 @@ export default function QMenu(props) {
           </NavLink>
         </li>
       </MenuList>
-      <MenuLabel>Spielmodi</MenuLabel>
+      {props.userName ? <MenuLabel>Spielmodi</MenuLabel> : ''}
       {props.userName ? (
         <MenuList>
           <li>
