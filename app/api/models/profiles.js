@@ -7,7 +7,7 @@ module.exports = {
   },
   logout: function(req, res, next) {
     req.logout();
-    res.send('logged out', 201);
+    res.status(201).send('logged out');
   },
   check: function(req, res) {
     res.json({user: req.user});
