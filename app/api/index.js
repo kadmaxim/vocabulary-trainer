@@ -23,15 +23,15 @@ app.use(
     secret: 'vocabulary-trainer',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000 * 12 }
+    cookie: { maxAge: 60000 * 121 }
   })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./api/config/passport')(passport);
-require('./api/routes')(app, passport);
+require('./config/passport')(passport);
+require('./routes')(app, passport);
 
 app.listen(app.get('port'), () =>
   console.log(`Server is running on port ${app.get('port')}`)

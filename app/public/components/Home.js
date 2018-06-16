@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Title, Tile, Column} from 'bloomer';
+import {Title, Tile, Column, Icon} from 'bloomer';
 import AllWords from './../containers/AllWords';
 import AddWord from './../containers/AddWord';
 
@@ -9,11 +9,33 @@ class Home extends Component {
   }
 
   render() {
-    return (
+    let {userName, showModal, logout} = this.props;
+    return !userName ? (
       <Tile hasTextAlign="centered" isChild>
-        <Title>Wilkommen!</Title>
-        <AddWord />
+        <Title>
+          Login & Register {'  '}
+          <Icon isAlign="right" onClick={showModal}>
+            <span
+              className="fa fa-address-card has-text-info"
+              aria-hidden="true"
+            />
+          </Icon>
+        </Title>
+      </Tile>
+    ) : (
+      <Tile hasTextAlign="centered" isChild>
+        <Title>
+          Wilkommen {userName}! {'  '}
+          <Icon isAlign="right" onClick={logout} title="Beenden">
+            <span
+              className="fa fa-sign-out has-text-primary"
+              aria-hidden="true"
+            />
+          </Icon>
+        </Title>
+
         <AllWords />
+        <AddWord />
       </Tile>
     );
   }

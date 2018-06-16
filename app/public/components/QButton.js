@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Column } from 'bloomer';
+import {Button, Column} from 'bloomer';
 
 export default function QButton(props) {
-  let { elem, rid, mode, handleClick, shuffled } = props;
+  let {elem, rid, mode, handleClick, shuffled} = props;
   return (
     <Column>
       <Button

@@ -5,5 +5,6 @@ export const GIVE_ANSWER = 'GIVE_ANSWER';
 export const TOGGLE_IMG = 'TOGGLE_IMG';
 export const FETCH_WORDS = 'FETCH_WORDS';
 export const ADD_WORD = 'ADD_WORD';
-export const LOGIN = 'LOGIN';
+export const SAVE_USER = 'SAVE_USER';
+export const CLEAR_USER = 'CLEAR_USER';
 export const REGISTER = 'REGISTER';
