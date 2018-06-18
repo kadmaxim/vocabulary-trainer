@@ -9,8 +9,7 @@ import {
 } from '../actions/types';
 
 const initalState = {
-  items: [],
-  item: {_id: '', original: '', translation: '', img_url: ''}
+  items: []
 };
 
 export default function(state = initalState, action) {
@@ -31,7 +30,7 @@ export default function(state = initalState, action) {
       return Object.assign({}, state, {
         wordsList: state.wordsList.map(answer => {
           if (answer._id === action.payload) {
-            answer = Object.assign({}, answer, {isPressed: true});
+            answer = Object.assign({}, answer, { isPressed: true });
           }
           return answer;
         })

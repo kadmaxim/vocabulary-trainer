@@ -1,9 +1,9 @@
 import Home from '../components/Home';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import _ from 'lodash/collection';
 
-import {SAVE_USER, CLEAR_USER} from './../actions/types';
+import { SAVE_USER, CLEAR_USER } from './../actions/types';
 
 const mapStateToProps = state => ({
   userName: state.user.userName
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   showModal: () => {
-    dispatch({type: 'SET_MODAL', payload: true});
+    dispatch({ type: 'SHOW_AUTH_MODAL', payload: true });
   },
   checkAuth: () => {
     axios.post(`/api/check`).then(res => {

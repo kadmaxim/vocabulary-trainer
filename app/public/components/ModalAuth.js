@@ -20,7 +20,7 @@ import {
 } from 'bloomer';
 
 export default function ModalAuth(props) {
-  let {closeModal, isActive, login, register} = props;
+  let { closeModal, isActive, login, register } = props;
   return (
     <Modal isActive={isActive}>
       <ModalBackground />
@@ -48,9 +48,6 @@ export default function ModalAuth(props) {
                 <span className="fa fa-lock" aria-hidden="true" />
               </Icon>
             </Control>
-            <Help isColor="success" isHidden={true}>
-              This username is available
-            </Help>
           </Field>
         </ModalCardBody>
         <ModalCardFooter>

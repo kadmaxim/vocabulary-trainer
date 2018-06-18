@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {Title, Tile, Column, Columns, Button, Subtitle} from 'bloomer';
+import { Title, Tile, Column, Columns, Button, Subtitle } from 'bloomer';
 import EditButton from './../containers/EditButton';
 import DeleteButton from './../containers/DeleteButton';
 
@@ -18,11 +18,11 @@ class AllWords extends Component {
           </Column>
           <Column isSize={3}>{word.translation}</Column>
           <Column isSize={3}>{word.original}</Column>
-          <Column isSize={1}>
-            <EditButton data={word} />
+          <Column isSize={2}>
+            <EditButton word={word} />
           </Column>
           <Column isSize={1}>
-            <DeleteButton data={word} />
+            <DeleteButton word={word} />
           </Column>
         </Columns>
       ))
