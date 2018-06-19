@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import 'bulma';
 import 'font-awesome/css/font-awesome.css';
 import './main.scss';
-import {Container, Box, Title} from 'bloomer';
+import { Container, Box, Title } from 'bloomer';
 import App from './containers/App';
 import ModalAuth from './containers/ModalAuth';
+import ModalWord from './containers/ModalWord';
 
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store';
 
 store.subscribe(() => {
@@ -26,6 +27,7 @@ ReactDOM.render(
         <App />
       </Box>
       <ModalAuth />
+      <ModalWord />
     </Container>
   </Provider>,
   document.getElementById('root')

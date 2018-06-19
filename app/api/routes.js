@@ -11,14 +11,14 @@ module.exports = function(app, passport) {
   app.delete('/api/user/:id', Users.del);
 
   app.get('/api/words', ensureLoggedIn(''), Words.getAll);
-  app.post('/api/word', Words.add);
-  app.get('/api/word/:id', Words.get);
-  app.post('/api/word/:id', Words.update);
-  app.delete('/api/word/:id', Words.del);
+  app.post('/api/word', ensureLoggedIn(''), Words.add);
+  app.get('/api/word/:id', ensureLoggedIn(''), Words.get);
+  app.post('/api/word/:id', ensureLoggedIn(''), Words.update);
+  app.delete('/api/word/:id', ensureLoggedIn(''), Words.del);
 
   app.post(
     '/api/login',
-    passport.authenticate('local', {failureRedirect: '/LoginRegistration'}),
+    passport.authenticate('local', { failureRedirect: '/LoginRegistration' }),
     Profile.auth
   );
   app.post('/api/check', ensureLoggedIn(''), Profile.check);

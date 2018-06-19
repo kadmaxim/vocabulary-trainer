@@ -1,15 +1,15 @@
 import ModalAuth from './../components/ModalAuth';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-import {SAVE_USER} from './../actions/types';
+import { SAVE_USER } from './../actions/types';
 
 const mapStateToProps = state => ({
-  isActive: state.modal.isShowModal
+  isActive: state.modals.modalAuth.isShowModal
 });
 
 const mapDispathToProps = dispatch => ({
-  closeModal: () => dispatch({type: 'SET_MODAL', payload: false}),
+  closeModal: () => dispatch({ type: 'SHOW_AUTH_MODAL', payload: false }),
   login: () => {
     document.querySelector('.username-help').innerText = '';
     let userLogin = document.querySelector('[name=login]').value;
@@ -26,7 +26,7 @@ const mapDispathToProps = dispatch => ({
             type: SAVE_USER,
             payload: userData
           });
-          dispatch({type: 'SET_MODAL', payload: false});
+          dispatch({ type: 'SHOW_AUTH_MODAL', payload: false });
         },
         err => {
           document.querySelector('.username-help').innerText = err.message;
