@@ -19,7 +19,7 @@ export default class Thumbnail extends Component {
 
     if (correct === undefined) return false;
 
-    let iconClass = !showImg ? 'fa fa-2x fa-eye' : 'fa fa-2x fa-eye-slash';
+    let iconClass = showImg ? 'fa fa-2x fa-eye' : 'fa fa-2x fa-eye-slash';
     return (
       <Column className="thumb-wrap">
         <div className="has-text-centered">

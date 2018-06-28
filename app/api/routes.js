@@ -10,17 +10,17 @@ module.exports = function(app, passport) {
   app.post('/api/user/:id', Users.update);
   app.delete('/api/user/:id', Users.del);
 
-  app.get('/api/words', ensureLoggedIn(''), Words.getAll);
-  app.post('/api/word', ensureLoggedIn(''), Words.add);
-  app.get('/api/word/:id', ensureLoggedIn(''), Words.get);
-  app.post('/api/word/:id', ensureLoggedIn(''), Words.update);
-  app.delete('/api/word/:id', ensureLoggedIn(''), Words.del);
+  app.get('/api/words', ensureLoggedIn('/404'), Words.getAll);
+  app.post('/api/word', ensureLoggedIn('/404'), Words.add);
+  app.get('/api/word/:id', ensureLoggedIn('/404'), Words.get);
+  app.post('/api/word/:id', ensureLoggedIn('/404'), Words.update);
+  app.delete('/api/word/:id', ensureLoggedIn('/404'), Words.del);
 
   app.post(
     '/api/login',
-    passport.authenticate('local', { failureRedirect: '/LoginRegistration' }),
+    passport.authenticate('local', { failureRedirect: '/404' }),
     Profile.auth
   );
-  app.post('/api/check', ensureLoggedIn(''), Profile.check);
+  app.post('/api/check', Profile.check);
   app.get('/api/logout', Profile.logout);
 };

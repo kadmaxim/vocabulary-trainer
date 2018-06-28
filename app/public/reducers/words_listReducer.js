@@ -18,6 +18,10 @@ export default function(state = initalState, action) {
       return Object.assign({}, state, {
         wordsList: [...action.payload]
       });
+    case 'SET_SHUFFLED_WORDS':
+      return Object.assign({}, state, {
+        shuffledList: [...action.payload]
+      });
     case SET_CORRECT:
       return Object.assign({}, state, {
         correct: Object.assign({}, action.payload)

@@ -1,8 +1,7 @@
-import {LOGIN, REGISTER} from './types';
+import { LOGIN, REGISTER } from './types';
 import axios from 'axios/index';
 
 export const login = loginData => dispatch => {
-  console.log('come here');
   axios
     .post(`/api/user`, {
       userName: loginData.userName,

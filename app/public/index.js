@@ -7,6 +7,7 @@ import { Container, Box, Title } from 'bloomer';
 import App from './containers/App';
 import ModalAuth from './containers/ModalAuth';
 import ModalWord from './containers/ModalWord';
+import Notification from './containers/Notification';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -15,12 +16,14 @@ store.subscribe(() => {
   console.log('Subscribe: ', store.getState());
 });
 
+window.st = store;
+
 ReactDOM.render(
   <Provider store={store}>
-    <Container className="">
+    <Container>
       <section className="hero is-light">
         <div className="hero-body">
-          <Title hasTextAlign="centered"> Vokabeltrainer</Title>
+          <Title hasTextAlign="centered">Vokabeltrainer</Title>
         </div>
       </section>
       <Box className="main-wrap">
@@ -28,6 +31,7 @@ ReactDOM.render(
       </Box>
       <ModalAuth />
       <ModalWord />
+      <Notification />
     </Container>
   </Provider>,
   document.getElementById('root')

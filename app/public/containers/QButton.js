@@ -1,5 +1,5 @@
-import Mode2 from './../components/QButton';
-import {connect} from 'react-redux';
+import QButton from './../components/QButton';
+import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
   mode: state.words_list.freeze,
@@ -9,9 +9,9 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   handleClick: answerID => {
-    dispatch({type: 'SET_FREEZE', payload: true});
-    dispatch({type: 'GIVE_ANSWER', payload: answerID});
+    dispatch({ type: 'SET_FREEZE', payload: true });
+    dispatch({ type: 'GIVE_ANSWER', payload: answerID });
   }
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Mode2);
+export default connect(mapStateToProps, mapDispathToProps)(QButton);
