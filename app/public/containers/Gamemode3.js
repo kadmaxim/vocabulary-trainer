@@ -7,9 +7,9 @@ import { notify } from './../actions/notificationActions';
 import { resetSelectedWord } from './../actions/wordsActions';
 
 const mapStateToProps = state => ({
-  answers: state.words.wordsList,
+  answers: state.mode.wordsList,
   selected: state.selectedWord,
-  shuffled: state.words.shuffledList
+  shuffled: state.mode.shuffledList
 });
 
 const mapDispathToProps = dispatch => ({

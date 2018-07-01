@@ -2,9 +2,9 @@ import CheckButton from './../components/CheckButton';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  mode: state.words.freeze,
-  answers: state.words.wordsList,
-  rid: state.words.correct.id
+  mode: state.mode.freeze,
+  answers: state.mode.wordsList,
+  rid: state.mode.correct.id
 });
 
 const mapDispathToProps = dispatch => ({

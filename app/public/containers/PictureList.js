@@ -5,8 +5,8 @@ import _ from 'lodash/collection';
 
 const mapStateToProps = (state, ownProps) => {
   let answers = ownProps.shuffle
-    ? _.shuffle(state.words.wordsList)
-    : state.words.wordsList;
+    ? _.shuffle(state.mode.wordsList)
+    : state.mode.wordsList;
 
   return {
     answers

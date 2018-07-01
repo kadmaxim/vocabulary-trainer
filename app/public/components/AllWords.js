@@ -5,13 +5,10 @@ import EditButton from './../containers/EditButton';
 import DeleteButton from './../containers/DeleteButton';
 
 class AllWords extends Component {
-  componentWillMount() {
-    this.props.getAllWords();
-  }
-
   render() {
     let { allWords } = this.props;
-    return allWords ? (
+
+    return allWords && allWords.length > 0 ? (
       allWords.map(word => (
         <Columns key={word._id} isVCentered className="user-words-list">
           <Column isSize={3}>
@@ -27,10 +24,15 @@ class AllWords extends Component {
           </Column>
         </Columns>
       ))
+    ) : allWords && allWords.length === 0 ? (
+      <Subtitle isSize={4} isMarginless>
+        Nichts gefunden
+        <i className="fa fa-exclamation-triangle has-text-danger qm-gap" />
+      </Subtitle>
     ) : (
       <Subtitle isSize={4} isMarginless>
-        Nichts gefunden {'  '}
-        <i className="fa fa-exclamation-triangle has-text-danger" />
+        <i className="fa fa-spinner fa-spin has-text-success qm-gap" />
+        Wörter werden geladen
       </Subtitle>
     );
   }

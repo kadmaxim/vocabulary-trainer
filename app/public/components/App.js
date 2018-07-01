@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import {Columns, Column} from 'bloomer';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Columns, Column } from 'bloomer';
 import QMenu from './../containers/QMenu';
 import Home from './../containers/Home';
 import Gamemode1 from './../containers/Gamemode1';
@@ -12,6 +12,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.props.checkAuth();
+    this.props.getAllWords();
   }
   render() {
     return (
