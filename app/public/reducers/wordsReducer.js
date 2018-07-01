@@ -8,11 +8,7 @@ import {
   ADD_WORD
 } from '../actions/types';
 
-const initalState = {
-  items: []
-};
-
-export default function(state = initalState, action) {
+export default function(state = {}, action) {
   switch (action.type) {
     case SET_WORDS:
       return Object.assign({}, state, {
@@ -45,11 +41,7 @@ export default function(state = initalState, action) {
       });
     case FETCH_WORDS:
       return Object.assign({}, state, {
-        items: action.payload
-      });
-    case ADD_WORD:
-      return Object.assign({}, state, {
-        item: action.payload
+        all: action.payload
       });
     default:
       return state;

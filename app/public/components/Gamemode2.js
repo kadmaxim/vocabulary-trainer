@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Columns, Column, Title, Tile } from 'bloomer';
-import WordsList from './../containers/WordsList';
-import SkipButton from './SkipButton';
+import SkipButton from './../containers/SkipButton';
 import Thumbnail from './../containers/Thumbnail';
+import QButton from './../containers/QButton';
 
 class Gamemode2 extends Component {
   constructor(props) {
@@ -18,9 +18,9 @@ class Gamemode2 extends Component {
   }
 
   render() {
-    let { correct, freeze } = this.props;
+    let { correct, freeze, answers } = this.props;
 
-    if (correct === undefined) return false;
+    if (answers === undefined || correct === undefined) return false;
 
     return (
       <Tile>
@@ -30,7 +30,9 @@ class Gamemode2 extends Component {
         </Column>
         <Column isSize="1/2" className="buttons-wrap">
           <div>
-            <WordsList handleClick={this.props.handleClick} />
+            {answers
+              ? answers.map((item, i) => <QButton key={i} elem={item} />)
+              : ''}
           </div>
           <SkipButton
             showRight={this.showRight}

@@ -2,9 +2,9 @@ import QButton from './../components/QButton';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  mode: state.words_list.freeze,
-  answers: state.words_list.wordsList,
-  rid: state.words_list.correct._id
+  mode: state.words.freeze,
+  answers: state.words.wordsList,
+  rid: state.words.correct._id
 });
 
 const mapDispathToProps = dispatch => ({

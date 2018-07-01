@@ -2,7 +2,7 @@ import ModalWord from './../components/ModalWord';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import { fetchWords } from './../actions/words_listActions';
+import { fetchWords } from './../actions/wordsActions';
 import { showWordModal, fetchingModal } from './../actions/modalsActions';
 
 function resetHelpInfo() {

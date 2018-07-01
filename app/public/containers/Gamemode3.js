@@ -4,17 +4,19 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import _ from 'lodash/collection';
 import { notify } from './../actions/notificationActions';
+import { resetSelectedWord } from './../actions/wordsActions';
 
 const mapStateToProps = state => ({
-  freeze: state.words_list.freeze,
-  answers: state.words_list.wordsList,
-  correct: state.words_list.correct,
+  answers: state.words.wordsList,
   selected: state.selectedWord,
-  shuffled: state.words_list.shuffledList
+  shuffled: state.words.shuffledList
 });
 
 const mapDispathToProps = dispatch => ({
   generateNext: listSize => {
+    dispatch(resetSelectedWord());
+    dispatch(notify());
+
     axios.get(`/api/words`).then(res => {
       let DB = res.data;
       let answers = _.sampleSize(DB, listSize);
@@ -33,7 +35,7 @@ const mapDispathToProps = dispatch => ({
       } else {
         dispatch(notify('Falsche Antwort!', 'danger'));
       }
-      dispatch({ type: 'RESET_SELECTED_WORD' });
+      dispatch(resetSelectedWord());
     } else {
       dispatch({ type: 'SET_SELECTED_WORD', payload: elem });
       dispatch(notify());

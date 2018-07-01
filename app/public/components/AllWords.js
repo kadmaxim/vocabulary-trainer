@@ -10,8 +10,9 @@ class AllWords extends Component {
   }
 
   render() {
-    return this.props.words_list.length > 0 ? (
-      this.props.words_list.map(word => (
+    let { allWords } = this.props;
+    return allWords ? (
+      allWords.map(word => (
         <Columns key={word._id} isVCentered className="user-words-list">
           <Column isSize={3}>
             <img src={word.img_url} />

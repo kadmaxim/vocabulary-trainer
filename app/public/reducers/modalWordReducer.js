@@ -1,6 +1,8 @@
+import { SHOW_WORD_MODAL } from './../actions/types';
+
 export default function wordModal(state = {}, action) {
   switch (action.type) {
-    case 'SHOW_WORD_MODAL':
+    case SHOW_WORD_MODAL:
       return Object.assign({}, state, {
         isShow: action.payload
       });

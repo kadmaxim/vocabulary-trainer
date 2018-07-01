@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Column, Tile, Button, Notification, Delete } from 'bloomer';
-import WordsList from './../containers/WordsList';
 
 export default class Gamemode3 extends Component {
   constructor(props) {

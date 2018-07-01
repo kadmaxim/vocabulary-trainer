@@ -1,10 +1,10 @@
-import Mode2 from './../components/SkipButton';
+import SkipButton from './../components/SkipButton';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  mode: state.words_list.freeze,
-  answers: state.words_list.wordsList,
-  rid: state.words_list.correct.id
+  mode: state.words.freeze,
+  answers: state.words.wordsList,
+  rid: state.words.correct._id
 });
 
 const mapDispathToProps = dispatch => ({
@@ -14,4 +14,4 @@ const mapDispathToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Mode2);
+export default connect(mapStateToProps, mapDispathToProps)(SkipButton);

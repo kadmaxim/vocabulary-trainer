@@ -1,13 +1,13 @@
 import Gamemode4 from '../components/Gamemode4';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import axios from 'axios';
 import _ from 'lodash/collection';
 
 const mapStateToProps = state => ({
-  freeze: state.words_list.freeze,
-  answers: state.words_list.wordsList,
-  correct: state.words_list.correct
+  freeze: state.words.freeze,
+  answers: state.words.wordsList,
+  correct: state.words.correct
 });
 
 const mapDispathToProps = dispatch => ({
@@ -17,12 +17,12 @@ const mapDispathToProps = dispatch => ({
       let answers = _.sampleSize(DB, listSize);
       let correct = _.sample(answers);
 
-      dispatch({type: 'SET_WORDS', payload: answers});
-      dispatch({type: 'SET_CORRECT', payload: correct});
-      dispatch({type: 'SET_FREEZE', payload: false});
+      dispatch({ type: 'SET_WORDS', payload: answers });
+      dispatch({ type: 'SET_CORRECT', payload: correct });
+      dispatch({ type: 'SET_FREEZE', payload: false });
     });
   },
-  freezeAll: mode => dispatch({type: 'SET_FREEZE', payload: mode})
+  freezeAll: mode => dispatch({ type: 'SET_FREEZE', payload: mode })
 });
 
 export default connect(mapStateToProps, mapDispathToProps)(Gamemode4);

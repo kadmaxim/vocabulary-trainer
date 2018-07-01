@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Column, Image, Icon } from 'bloomer';
-import WordsList from './../containers/WordsList';
-import SkipButton from './SkipButton';
 
 export default class Thumbnail extends Component {
   constructor(props) {

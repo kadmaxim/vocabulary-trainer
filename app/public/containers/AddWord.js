@@ -1,19 +1,14 @@
 import AddWord from '../components/AddWord';
 import { connect } from 'react-redux';
-import { addWord } from '../actions/words_listActions';
-import { ADD_WORD } from '../actions/types';
+import { showWordModal } from './../actions/modalsActions';
+import { resetSelectedWord } from './../actions/wordsActions';
 
 const mapStateToProps = state => ({});
 
 const mapDispathToProps = dispatch => ({
   openWordModal() {
-    dispatch({
-      type: 'RESET_SELECTED_WORD'
-    });
-    dispatch({
-      type: 'SHOW_WORD_MODAL',
-      payload: true
-    });
+    dispatch(resetSelectedWord());
+    dispatch(showWordModal(true));
   }
 });
 

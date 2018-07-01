@@ -1,7 +1,7 @@
 import DeleteButton from './../components/DeleteButton';
 import { connect } from 'react-redux';
 import { ADD_WORD } from '../actions/types';
-import { fetchWords } from '../actions/words_listActions';
+import { fetchWords } from '../actions/wordsActions';
 
 import axios from 'axios';
 

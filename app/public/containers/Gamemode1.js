@@ -5,9 +5,9 @@ import axios from 'axios';
 import _ from 'lodash/collection';
 
 const mapStateToProps = state => ({
-  freeze: state.words_list.freeze,
-  answers: state.words_list.wordsList,
-  correct: state.words_list.correct
+  freeze: state.words.freeze,
+  answers: state.words.wordsList,
+  correct: state.words.correct
 });
 
 const mapDispathToProps = dispatch => ({
