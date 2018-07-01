@@ -3,16 +3,15 @@ import QButton from './../containers/QButton';
 import { Image, Column, Columns } from 'bloomer';
 
 export default function PictureList(props) {
-  let { answers, shuffle } = props;
+  let { list } = props;
 
   return (
     <Columns className="is-multiline">
-      {answers
-        ? answers.map((item, i) => (
+      {list
+        ? list.items.map((item, i) => (
             <Column className="is-half" key={i}>
               <Image src={item.img_url} className="is-2by1" />
-
-              <QButton key={i} elem={item} shuffled={shuffle} />
+              <QButton elem={item} mode={list.freeze} />
             </Column>
           ))
         : ''}

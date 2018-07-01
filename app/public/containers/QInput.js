@@ -1,5 +1,7 @@
-import Mode2 from './../components/QInput';
+import QInput from './../components/QInput';
 import { connect } from 'react-redux';
+
+import { freezing, giveAnswer } from './../actions/modeActions';
 
 const mapStateToProps = state => ({
   mode: state.mode.freeze,
@@ -9,9 +11,9 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   handleClick: answerID => {
-    dispatch({ type: 'SET_FREEZE', payload: true });
-    dispatch({ type: 'GIVE_ANSWER', payload: answerID });
+    dispatch(freezing(true));
+    dispatch(giveAnswer(answerID));
   }
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Mode2);
+export default connect(mapStateToProps, mapDispathToProps)(QInput);

@@ -18,9 +18,10 @@ class Gamemode2 extends Component {
   }
 
   render() {
-    let { correct, freeze, answers } = this.props;
+    let { correct, list } = this.props;
+    if (list === undefined || correct === undefined) return false;
 
-    if (answers === undefined || correct === undefined) return false;
+    let { items, freeze } = list;
 
     return (
       <Tile>
@@ -30,8 +31,10 @@ class Gamemode2 extends Component {
         </Column>
         <Column isSize="1/2" className="buttons-wrap">
           <div>
-            {answers
-              ? answers.map((item, i) => <QButton key={i} elem={item} />)
+            {items
+              ? items.map((item, i) => (
+                  <QButton key={i} elem={item} mode={freeze} />
+                ))
               : ''}
           </div>
           <SkipButton

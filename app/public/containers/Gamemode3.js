@@ -5,11 +5,12 @@ import axios from 'axios';
 import _ from 'lodash/collection';
 import { notify } from './../actions/notificationActions';
 import { resetSelectedWord } from './../actions/wordsActions';
+import { giveAnswer, freezing, leaveDone } from './../actions/modeActions';
 
 const mapStateToProps = state => ({
-  answers: state.mode.wordsList,
+  leftList: state.mode.wordsList,
   selected: state.selectedWord,
-  shuffled: state.mode.shuffledList
+  shuffledList: state.mode.shuffledList
 });
 
 const mapDispathToProps = dispatch => ({
@@ -26,15 +27,21 @@ const mapDispathToProps = dispatch => ({
       dispatch({ type: 'SET_SHUFFLED_WORDS', payload: _.shuffle(answers) });
     });
   },
-  handleClick: (elem, selected) => {
-    console.log('Clicked: ', 'Selected: ');
-    console.log(elem, selected);
+  handleClick: (elem, selected, listName) => {
+    dispatch(giveAnswer(elem._id, listName));
+    dispatch(freezing(true, listName));
+
     if (selected.original !== '') {
+      let status = false;
       if (selected._id === elem._id) {
         dispatch(notify('Richtige Antwort!', 'success'));
+        status = true;
       } else {
         dispatch(notify('Falsche Antwort!', 'danger'));
       }
+
+      dispatch(leaveDone('wordsList', status));
+      dispatch(leaveDone('shuffledList', status));
       dispatch(resetSelectedWord());
     } else {
       dispatch({ type: 'SET_SELECTED_WORD', payload: elem });

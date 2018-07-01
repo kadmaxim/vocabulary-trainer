@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { generate, freezing } from './../actions/modeActions';
 
 const mapStateToProps = state => ({
-  freeze: state.mode.freeze,
-  answers: state.mode.wordsList,
+  list: state.mode.wordsList,
   correct: state.mode.correct
 });
 

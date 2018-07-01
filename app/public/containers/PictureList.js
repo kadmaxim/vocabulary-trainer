@@ -3,14 +3,9 @@ import { connect } from 'react-redux';
 
 import _ from 'lodash/collection';
 
-const mapStateToProps = (state, ownProps) => {
-  let answers = ownProps.shuffle
-    ? _.shuffle(state.mode.wordsList)
-    : state.mode.wordsList;
-
-  return {
-    answers
-  };
-};
+const mapStateToProps = state => ({
+  list: state.mode.wordsList,
+  correct: state.mode.correct
+});
 
 export default connect(mapStateToProps)(PictureList);

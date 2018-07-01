@@ -18,9 +18,9 @@ class Gamemode1 extends Component {
   }
 
   render() {
-    let { correct, freeze } = this.props;
+    let { correct, list } = this.props;
 
-    if (correct === undefined) return false;
+    if (correct === undefined || list === undefined) return false;
 
     return (
       <Column className="is-three-quarters">
@@ -34,7 +34,7 @@ class Gamemode1 extends Component {
             <SkipButton
               showRight={this.showRight}
               getNext={this.props.generateNext}
-              mode={freeze}
+              mode={list.freeze}
             />
           </Column>
         </Columns>

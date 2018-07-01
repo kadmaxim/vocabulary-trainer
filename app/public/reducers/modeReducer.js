@@ -6,33 +6,66 @@ import {
   TOGGLE_IMG
 } from '../actions/types';
 
+function mmm() {
+  console.log();
+  return {};
+}
+
 export default function(state = {}, action) {
+  let temp = {};
   switch (action.type) {
     case SET_WORDS:
       return Object.assign({}, state, {
-        wordsList: [...action.payload]
+        wordsList: {
+          items: [...action.payload]
+        }
       });
     case 'SET_SHUFFLED_WORDS':
       return Object.assign({}, state, {
-        shuffledList: [...action.payload]
+        shuffledList: {
+          items: [...action.payload]
+        }
       });
     case SET_CORRECT:
       return Object.assign({}, state, {
         correct: Object.assign({}, action.payload)
       });
     case SET_FREEZE:
-      return Object.assign({}, state, {
-        freeze: action.payload
-      });
+      temp = {};
+      temp[action.payload.listName] = {
+        items: [...state[action.payload.listName].items],
+        freeze: action.payload.mode
+      };
+
+      return Object.assign({}, state, temp);
+
     case GIVE_ANSWER:
-      return Object.assign({}, state, {
-        wordsList: state.wordsList.map(answer => {
-          if (answer._id === action.payload) {
+      temp = {};
+      temp[action.payload.listName] = {
+        items: state[action.payload.listName].items.map(answer => {
+          if (answer._id === action.payload.itemID) {
             answer = Object.assign({}, answer, { isPressed: true });
           }
           return answer;
-        })
-      });
+        }),
+        freeze: state[action.payload.listName].freeze
+      };
+      return Object.assign({}, state, temp);
+
+    case 'LEAVE_DONE':
+      temp = {};
+      temp[action.payload.listName] = {
+        items: state[action.payload.listName].items.map(answer => {
+          if (answer.isPressed && action.payload.status) {
+            answer = Object.assign({}, answer, { isDone: true });
+          } else if (!answer.isDone) {
+            answer = Object.assign({}, answer, { isPressed: false });
+          }
+          return answer;
+        }),
+        freeze: false
+      };
+      return Object.assign({}, state, temp);
 
     case TOGGLE_IMG:
       return Object.assign({}, state, {

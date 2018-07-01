@@ -1,11 +1,10 @@
 import Gamemode4 from '../components/Gamemode4';
 import { connect } from 'react-redux';
 
-import { generate } from './../actions/modeActions';
+import { generate, freezing } from './../actions/modeActions';
 
 const mapStateToProps = state => ({
-  freeze: state.mode.freeze,
-  answers: state.mode.wordsList,
+  list: state.mode.wordsList,
   correct: state.mode.correct
 });
 

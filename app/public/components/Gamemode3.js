@@ -4,26 +4,24 @@ import { Column, Tile, Button, Notification, Delete } from 'bloomer';
 export default class Gamemode3 extends Component {
   constructor(props) {
     super(props);
-
     this.props.generateNext(7);
   }
 
   render() {
-    let { answers, shuffled, handleClick, selected } = this.props;
-    if (answers === undefined || shuffled === undefined) return false;
+    let { leftList, shuffledList, handleClick, selected } = this.props;
+    if (leftList === undefined || shuffledList === undefined) return false;
 
     return (
       <Tile className="flex-wrap">
         <Column isSize="1/2" className="buttons-wrap">
-          {answers.map(elem => {
+          {leftList.items.map(elem => {
             return (
               <Column key={elem._id}>
                 <Button
                   disabled={elem.isPressed ? true : false}
-                  onClick={handleClick.bind(this, elem, selected)}
-                  className={`btn-${elem._id}`}
-                  isColor={elem.isPressed && (elem._id ? 'success' : 'danger')}
-                  isStatic={elem.isPressed}>
+                  onClick={handleClick.bind(this, elem, selected, 'wordsList')}
+                  isColor={elem.isPressed ? 'info' : ''}
+                  isStatic={!elem.isPressed && leftList.freeze}>
                   {elem.original}
                 </Button>
               </Column>
@@ -31,15 +29,21 @@ export default class Gamemode3 extends Component {
           })}
         </Column>
         <Column isSize="1/2" className="buttons-wrap">
-          {shuffled.map(elem => {
+          {shuffledList.items.map(elem => {
             return (
               <Column key={elem._id}>
                 <Button
-                  disabled={elem.isPressed ? true : false}
-                  onClick={handleClick.bind(this, elem, selected)}
-                  className={`btn-${elem._id}`}
-                  isColor={elem.isPressed && (elem._id ? 'success' : 'danger')}
-                  isStatic={elem.isPressed}>
+                  disabled={elem.isPressed || elem.isDone ? true : false}
+                  onClick={handleClick.bind(
+                    this,
+                    elem,
+                    selected,
+                    'shuffledList'
+                  )}
+                  isColor={elem.isPressed || elem.isDone ? 'info' : ''}
+                  isStatic={
+                    (!elem.isPressed || elem.isDone) && shuffledList.freeze
+                  }>
                   {elem.translation}
                 </Button>
               </Column>
