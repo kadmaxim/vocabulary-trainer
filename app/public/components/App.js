@@ -12,7 +12,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.props.checkAuth();
-    this.props.getAllWords();
   }
   render() {
     return (

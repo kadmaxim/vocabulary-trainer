@@ -4,14 +4,10 @@ import axios from 'axios';
 
 import { SAVE_USER } from './../actions/types';
 import { notify } from './../actions/notificationActions';
-import { fetchWords } from '../actions/wordsActions';
 
 const mapStateToProps = state => ({});
 
 const mapDispathToProps = dispatch => ({
-  getAllWords() {
-    dispatch(fetchWords());
-  },
   checkAuth: () => {
     axios.post(`/api/check`).then(
       res => {

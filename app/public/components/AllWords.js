@@ -5,6 +5,10 @@ import EditButton from './../containers/EditButton';
 import DeleteButton from './../containers/DeleteButton';
 
 class AllWords extends Component {
+  constructor(props) {
+    super(props);
+    this.props.getAllWords();
+  }
   render() {
     let { allWords } = this.props;
 
