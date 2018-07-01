@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { SAVE_USER, CLEAR_USER } from './types';
+import { notify } from './notificationActions';
+import { showAuthModal } from './modalsActions';
 
 export const userLogin = postData => dispatch => {
   document.querySelector('.username-help').innerText = '';
@@ -10,7 +12,8 @@ export const userLogin = postData => dispatch => {
         type: SAVE_USER,
         payload: userData
       });
-      dispatch({ type: 'SHOW_AUTH_MODAL', payload: false });
+      dispatch(showAuthModal(false));
+      dispatch(notify());
     },
     err => {
       document.querySelector('.username-help').innerText = err.message;
@@ -29,16 +32,6 @@ export const userRegister = postData => dispatch => {
         document.querySelector('.login-btn').click();
       }
     });
-};
-
-export const userCheck = () => dispatch => {
-  axios.post(`/api/check`).then(res => {
-    let userData = res.data;
-    dispatch({
-      type: SAVE_USER,
-      payload: userData
-    });
-  });
 };
 
 export const userLogout = () => dispatch => {

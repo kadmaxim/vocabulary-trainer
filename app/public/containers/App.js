@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { SAVE_USER } from './../actions/types';
+import { notify } from './../actions/notificationActions';
 
 const mapStateToProps = state => ({});
 
@@ -13,10 +14,8 @@ const mapDispathToProps = dispatch => ({
         let data = res.data;
 
         if (data.status) {
-          dispatch({
-            type: 'SET_NOTIFICATION',
-            payload: { message: data.message, color: data.status }
-          });
+          let { message, color } = data;
+          dispatch(notify(message, color));
         } else {
           dispatch({
             type: SAVE_USER,
@@ -25,10 +24,7 @@ const mapDispathToProps = dispatch => ({
         }
       },
       err => {
-        dispatch({
-          type: 'SET_NOTIFICATION',
-          payload: { message: err.message, color: 'danger' }
-        });
+        dispatch(notify(err.message));
       }
     );
   }

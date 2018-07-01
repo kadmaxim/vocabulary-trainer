@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import axios from 'axios';
 import _ from 'lodash/collection';
+import { notify } from './../actions/notificationActions';
 
 const mapStateToProps = state => ({
   freeze: state.words_list.freeze,
@@ -28,23 +29,14 @@ const mapDispathToProps = dispatch => ({
     console.log(elem, selected);
     if (selected.original !== '') {
       if (selected._id === elem._id) {
-        dispatch({
-          type: 'SET_NOTIFICATION',
-          payload: { message: 'Right answer!', color: 'success' }
-        });
+        dispatch(notify('Richtige Antwort!', 'success'));
       } else {
-        dispatch({
-          type: 'SET_NOTIFICATION',
-          payload: { message: 'Wrong answer!', color: 'danger' }
-        });
+        dispatch(notify('Falsche Antwort!', 'danger'));
       }
       dispatch({ type: 'RESET_SELECTED_WORD' });
     } else {
       dispatch({ type: 'SET_SELECTED_WORD', payload: elem });
-      dispatch({
-        type: 'SET_NOTIFICATION',
-        payload: { message: '' }
-      });
+      dispatch(notify());
     }
   }
 });

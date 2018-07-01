@@ -1,4 +1,4 @@
-import {SAVE_USER, CLEAR_USER, REGISTER} from '../actions/types';
+import { SAVE_USER, CLEAR_USER } from '../actions/types';
 
 const initalState = {
   userName: '',
@@ -14,11 +14,6 @@ export default function(state = initalState, action) {
       });
     case CLEAR_USER:
       return Object.assign({}, state, initalState);
-    case REGISTER:
-      return Object.assign({}, state, {
-        userName: action.payload.userName,
-        userPassword: action.payload.userPassword
-      });
     default:
       return state;
   }
