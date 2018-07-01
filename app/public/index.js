@@ -16,8 +16,6 @@ store.subscribe(() => {
   console.log('Subscribe: ', store.getState());
 });
 
-window.st = store;
-
 ReactDOM.render(
   <Provider store={store}>
     <Container>

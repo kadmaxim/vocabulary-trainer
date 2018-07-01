@@ -1,9 +1,8 @@
 import Home from '../components/Home';
 import { connect } from 'react-redux';
-import axios from 'axios';
-import _ from 'lodash/collection';
 
-import { SAVE_USER, CLEAR_USER } from './../actions/types';
+import { showAuthModal } from './../actions/modalsActions';
+import { userLogout, userCheck } from './../actions/userActions';
 
 const mapStateToProps = state => ({
   userName: state.user.userName
@@ -11,24 +10,14 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   showModal: () => {
-    dispatch({ type: 'SHOW_AUTH_MODAL', payload: true });
+    dispatch(showAuthModal(true));
   },
   checkAuth: () => {
-    axios.post(`/api/check`).then(res => {
-      let userData = res.data;
-      dispatch({
-        type: SAVE_USER,
-        payload: userData
-      });
-    });
+    dispatch(userCheck());
   },
   logout: () => {
     console.log('logout');
-    axios.get(`/api/logout`).then(res => {
-      dispatch({
-        type: CLEAR_USER
-      });
-    });
+    dispatch(userLogout());
   }
 });
 

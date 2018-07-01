@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import { fetchWords } from './../actions/words_listActions';
+import { showWordModal, fetchingModal } from './../actions/modalsActions';
 
 function resetHelpInfo() {
   document.querySelectorAll('.help').forEach(elem => {
@@ -18,7 +19,7 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   closeModal: () => {
-    dispatch({ type: 'SHOW_WORD_MODAL', payload: false });
+    dispatch(showWordModal(false));
     resetHelpInfo();
   },
   editPart: e => {
@@ -52,7 +53,7 @@ const mapDispathToProps = dispatch => ({
       return;
     }
 
-    dispatch({ type: 'SET_FETCHING_MODAL', payload: true });
+    dispatch(fetchingModal(true));
     //if wordID is empty - then we will add the word
     let isWordID = word._id.length > 0 ? `/${word._id}` : '';
 
@@ -64,8 +65,8 @@ const mapDispathToProps = dispatch => ({
       })
       .then(res => {
         if (res.status !== 'error') {
-          dispatch({ type: 'SHOW_WORD_MODAL', payload: false });
-          dispatch({ type: 'SET_FETCHING_MODAL', payload: false });
+          dispatch(showWordModal(false));
+          dispatch(fetchingModal(false));
           dispatch(fetchWords());
         } else {
           throw new Error(res.message);

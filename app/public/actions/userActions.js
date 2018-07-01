@@ -1,35 +1,50 @@
-import { LOGIN, REGISTER } from './types';
-import axios from 'axios/index';
+import axios from 'axios';
+import { SAVE_USER, CLEAR_USER } from './types';
 
-export const login = loginData => dispatch => {
-  axios
-    .post(`/api/user`, {
-      userName: loginData.userName,
-      password: loginData.userPassword
-    })
-    .then(res => res.data)
-    .then(login => {
-      console.log(login);
+export const userLogin = postData => dispatch => {
+  document.querySelector('.username-help').innerText = '';
+  axios.post(`/api/login`, postData).then(
+    res => {
+      let userData = res.data;
       dispatch({
-        type: LOGIN,
-        payload: login
+        type: SAVE_USER,
+        payload: userData
       });
+      dispatch({ type: 'SHOW_AUTH_MODAL', payload: false });
+    },
+    err => {
+      document.querySelector('.username-help').innerText = err.message;
+    }
+  );
+};
+
+export const userRegister = postData => dispatch => {
+  axios
+    .put(`/api/register`, postData)
+    .then(res => res.data, err => console.log(err))
+    .then(obj => {
+      if (obj.status !== 'success') {
+        document.querySelector('.username-help').innerText = obj.message;
+      } else {
+        document.querySelector('.login-btn').click();
+      }
     });
 };
 
-export const register = registerData => dispatch => {
-  axios
-    .put(`/api/user`, {
-      userName: registerData.userName,
-      password: registerData.userPassword
-    })
-    .then(res => {
-      return Array.from(res.data);
-    })
-    .then(register =>
-      dispatch({
-        type: REGISTER,
-        payload: register
-      })
-    );
+export const userCheck = () => dispatch => {
+  axios.post(`/api/check`).then(res => {
+    let userData = res.data;
+    dispatch({
+      type: SAVE_USER,
+      payload: userData
+    });
+  });
+};
+
+export const userLogout = () => dispatch => {
+  axios.get(`/api/logout`).then(res => {
+    dispatch({
+      type: CLEAR_USER
+    });
+  });
 };
