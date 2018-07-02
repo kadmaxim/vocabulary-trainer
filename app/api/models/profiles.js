@@ -13,7 +13,7 @@ module.exports = {
     if (req.user !== undefined) {
       res.json({ user: req.user });
     } else {
-      res.json({ status: 'danger', message: "User isn't logged in!" });
+      res.json({ status: 'danger', message: "You aren't logged in!" });
     }
   }
 };
