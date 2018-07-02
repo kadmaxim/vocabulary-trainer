@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Columns, Column, Title, Tile } from 'bloomer';
 import PictureList from './../containers/PictureList';
 import SkipButton from './../containers/SkipButton';
 import Answer from './../containers/Answer';
+import Gamemode1 from './Gamemode1';
 
-class Gamemode1 extends Component {
+class Gamemode5 extends Gamemode1 {
   constructor(props) {
     super(props);
-    this.showRight = this.showRight.bind(this);
-
     this.props.generateNext(4);
-  }
-
-  showRight() {
-    document.querySelector(`.btn-${this.props.correct._id}`).click();
-    this.props.freezeAll(true);
   }
 
   render() {
@@ -26,7 +20,6 @@ class Gamemode1 extends Component {
       <Column className="is-three-quarters">
         <Columns className="is-multiline">
           <Column className="is-12">
-            <Title hasTextAlign="centered"> {correct.translation} </Title>
             <Answer />
           </Column>
           <Column className="buttons-wrap is-12">
@@ -43,4 +36,4 @@ class Gamemode1 extends Component {
   }
 }
 
-export default Gamemode1;
+export default Gamemode5;

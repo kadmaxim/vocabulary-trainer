@@ -1,6 +1,6 @@
 import React from 'react';
-import {Menu, MenuList, MenuLabel} from 'bloomer';
-import {NavLink} from 'react-router-dom';
+import { Menu, MenuList, MenuLabel } from 'bloomer';
+import { NavLink } from 'react-router-dom';
 
 export default function QMenu(props) {
   return (
@@ -34,6 +34,16 @@ export default function QMenu(props) {
           <li>
             <NavLink to="/Gamemode4" activeClassName="is-active">
               Spielmodus 4
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Gamemode5" activeClassName="is-active">
+              Spielmodus 5
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/Gamemode6" activeClassName="is-active">
+              Spielmodus 6
             </NavLink>
           </li>
         </MenuList>
