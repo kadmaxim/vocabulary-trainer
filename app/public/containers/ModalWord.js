@@ -1,78 +1,78 @@
 import ModalWord from './../components/ModalWord';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-import {SAVE_USER} from './../actions/types';
-import {fetchWords} from './../actions/words_listActions';
+import { fetchWords } from './../actions/wordsActions';
+import { showWordModal, fetchingModal } from './../actions/modalsActions';
+
+function resetHelpInfo() {
+  document.querySelectorAll('.help').forEach(elem => {
+    elem.innerText = '';
+  });
+}
 
 const mapStateToProps = state => ({
-    isActive: state.modals.modalWord.isShowModal,
-    isFetching: state.modals.modalWord.isFetching,
-    selectedWord: state.selectedWord
+  isActive: state.modals.modalWord.isShow,
+  isFetching: state.modals.modalWord.isFetching,
+  selectedWord: state.selectedWord
 });
 
 const mapDispathToProps = dispatch => ({
-    closeModal: () => dispatch({type: 'SHOW_WORD_MODAL', payload: false}),
-    editPart: e => {
-        dispatch({
-            type: 'CHANGE_SELECTED_WORD',
-            payload: {
-                field: e.target.name,
-                val: e.target.value
-            }
-        })
-    },
-    saveWord: word => {
-        let invalidInput = false;
+  closeModal: () => {
+    dispatch(showWordModal(false));
+    resetHelpInfo();
+  },
+  editPart: e => {
+    dispatch({
+      type: 'CHANGE_SELECTED_WORD',
+      payload: {
+        field: e.target.name,
+        val: e.target.value
+      }
+    });
+  },
+  saveWord: word => {
+    let wordRE = new RegExp('^([a-zA-Z])([^0-9]*)$', 'i');
+    let urlRE = /^(http[s]?:\/\/)+([^\s])+(.jpg|.png|.gif|.bmp)$/;
+    let errorMsg = 'Ungültige Eingabe';
 
-        if (new RegExp('^([a-zA-Z])([^0-9]*)$', 'i').test(word.original) === false) {
-            document.querySelector('.original-help').innerText = 'Ungültige Eingabe';
-            invalidInput = true;
-        } else {
-            document.querySelector('.original-help').innerText = '';
-            invalidInput = false;
-        }
+    resetHelpInfo();
 
-        if (new RegExp('^([a-zA-Z])([^0-9]*)$', 'i').test(word.translation) === false) {
-            document.querySelector('.translation-help').innerText = 'Ungültige Eingabe';
-            invalidInput = true;
-        } else {
-            document.querySelector('.translation-help').innerText = '';
-            invalidInput = false;
-        }
-
-        if (new RegExp('^(http:\\/\\/www\\.|https:\\/\\/www\\.|http:\\/\\/|https:\\/\\/)+([^\\s])+(.jpg|.png|.gif|.bmp)$', 'i').test(word.img_url) === false) {
-            document.querySelector('.image_url-help').innerText = 'Ungültige Eingabe';
-            invalidInput = true;
-        } else {
-            document.querySelector('.image_url-help').innerText = '';
-            invalidInput = false;
-        }
-
-        if (invalidInput) {
-            return;
-        }
-
-        dispatch({type: 'SET_FETCHING_MODAL', payload: true});
-        //if wordID is empty - then we will add the word
-        let isWordID = word._id.length > 0 ? `/${word._id}` : '';
-
-        axios
-            .post(`/api/word${isWordID}`, {
-                original: word.original,
-                translation: word.translation,
-                img_url: word.img_url
-            })
-            .then(res => {
-                if (res.status !== 'error') {
-                    dispatch({type: 'SHOW_WORD_MODAL', payload: false});
-                    dispatch({type: 'SET_FETCHING_MODAL', payload: false});
-                    dispatch(fetchWords());
-                } else {
-                    throw new Error(res.message);
-                }
-            });
+    if (wordRE.test(word.original) === false) {
+      document.querySelector('.original-help').innerText = errorMsg;
+      return;
     }
+
+    if (wordRE.test(word.translation) === false) {
+      document.querySelector('.translation-help').innerText = errorMsg;
+      return;
+    }
+
+    if (urlRE.test(word.img_url) === false) {
+      document.querySelector('.image_url-help').innerText = errorMsg;
+      return;
+    }
+
+    dispatch(fetchingModal(true));
+    //if wordID is empty - then we will add the word
+    let isWordID = word._id.length > 0 ? `/${word._id}` : '';
+
+    axios
+      .post(`/api/word${isWordID}`, {
+        original: word.original,
+        translation: word.translation,
+        img_url: word.img_url
+      })
+      .then(res => {
+        if (res.status !== 'error') {
+          dispatch(showWordModal(false));
+          dispatch(fetchingModal(false));
+          dispatch(fetchWords());
+        } else {
+          throw new Error(res.message);
+        }
+      });
+  }
 });
 
 export default connect(mapStateToProps, mapDispathToProps)(ModalWord);

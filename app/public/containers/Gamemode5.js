@@ -1,4 +1,4 @@
-import Gamemode2 from './../components/Gamemode2';
+import Gamemode5 from './../components/Gamemode5';
 import { connect } from 'react-redux';
 
 import { generate, freezing } from './../actions/modeActions';
@@ -13,4 +13,4 @@ const mapDispathToProps = dispatch => ({
   freezeAll: mode => dispatch(freezing(mode))
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Gamemode2);
+export default connect(mapStateToProps, mapDispathToProps)(Gamemode5);

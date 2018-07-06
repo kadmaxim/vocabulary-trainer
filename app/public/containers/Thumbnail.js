@@ -2,8 +2,8 @@ import Thumbnail from './../components/Thumbnail';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-  showImg: state.words_list.showImg,
-  correct: state.words_list.correct
+  showImg: state.mode.showImg,
+  correct: state.mode.correct
 });
 
 const mapDispathToProps = dispatch => ({

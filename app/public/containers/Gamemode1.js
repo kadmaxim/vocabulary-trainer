@@ -1,28 +1,16 @@
 import Gamemode1 from '../components/Gamemode1';
 import { connect } from 'react-redux';
 
-import axios from 'axios';
-import _ from 'lodash/collection';
+import { generate, freezing } from './../actions/modeActions';
 
 const mapStateToProps = state => ({
-  freeze: state.words_list.freeze,
-  answers: state.words_list.wordsList,
-  correct: state.words_list.correct
+  list: state.mode.wordsList,
+  correct: state.mode.correct
 });
 
 const mapDispathToProps = dispatch => ({
-  generateNext: (listSize = 4) => {
-    axios.get(`/api/words`).then(res => {
-      let DB = res.data;
-      let answers = _.sampleSize(DB, listSize);
-      let correct = _.sample(answers);
-
-      dispatch({ type: 'SET_WORDS', payload: answers });
-      dispatch({ type: 'SET_CORRECT', payload: correct });
-      dispatch({ type: 'SET_FREEZE', payload: false });
-    });
-  },
-  freezeAll: mode => dispatch({ type: 'SET_FREEZE', payload: mode })
+  generateNext: (listSize = 4) => dispatch(generate(listSize)),
+  freezeAll: mode => dispatch(freezing(mode))
 });
 
 export default connect(mapStateToProps, mapDispathToProps)(Gamemode1);

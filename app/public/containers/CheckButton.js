@@ -1,10 +1,10 @@
-import Mode2 from './../components/CheckButton';
+import CheckButton from './../components/CheckButton';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-    mode: state.words_list.freeze,
-    answers: state.words_list.wordsList,
-    rid: state.words_list.correct.id
+  mode: state.mode.freeze,
+  answers: state.mode.wordsList,
+  rid: state.mode.correct.id
 });
 
 const mapDispathToProps = dispatch => ({
@@ -14,4 +14,4 @@ const mapDispathToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Mode2);
+export default connect(mapStateToProps, mapDispathToProps)(CheckButton);

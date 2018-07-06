@@ -1,16 +1,4 @@
 import React, { Component } from 'react';
-import {
-  Modal,
-  ModalBackground,
-  ModalContent,
-  ModalClose,
-  ModalCard,
-  ModalCardHeader,
-  ModalCardBody,
-  ModalCardFooter,
-  ModalCardTitle
-} from 'bloomer';
-import { Button, Column, Input } from 'bloomer';
 
 export default class AddWord extends Component {
   constructor(props) {

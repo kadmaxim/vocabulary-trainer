@@ -1,23 +1,16 @@
-import React, {} from 'react';
+import React from 'react';
 import QInput from './../containers/QInput';
-import { Image, Column,Columns } from 'bloomer';
+import { Image, Tile } from 'bloomer';
 
 export default function SinglePicture(props) {
-    let {answers, shuffle} = props;
-
-    return (
-        <div>
-            {answers
-                ? answers.map((item, i) => (
-                    <div key={i}>
-                        <figure>
-                            <Image src={item.img_url}/>
-                        </figure>
-                        <br/>
-                        <QInput key={i} elem={item} shuffled={shuffle}/>
-                    </div>
-                ) )
-                : ''}
-        </div>
-    );
+  let { list } = props;
+  let html = list
+    ? list.items.map((item, i) => (
+        <Tile key={i} isChild>
+          <Image src={item.img_url} />
+          <QInput elem={item} />
+        </Tile>
+      ))
+    : '';
+  return html;
 }

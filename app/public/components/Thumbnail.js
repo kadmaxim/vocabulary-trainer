@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { Column, Image, Icon } from 'bloomer';
-import WordsList from './../containers/WordsList';
-import SkipButton from './SkipButton';
 
 export default class Thumbnail extends Component {
   constructor(props) {
@@ -19,7 +17,7 @@ export default class Thumbnail extends Component {
 
     if (correct === undefined) return false;
 
-    let iconClass = !showImg ? 'fa fa-2x fa-eye' : 'fa fa-2x fa-eye-slash';
+    let iconClass = showImg ? 'fa fa-2x fa-eye' : 'fa fa-2x fa-eye-slash';
     return (
       <Column className="thumb-wrap">
         <div className="has-text-centered">

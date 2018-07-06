@@ -3,8 +3,9 @@ import { Columns, Column, Title, Container } from 'bloomer';
 import SinglePicture from './../containers/SinglePicture';
 import CheckButton from './CheckButton';
 import Answer from './../containers/Answer';
+import Gamemode4 from './Gamemode4';
 
-class Gamemode4 extends Component {
+class Gamemode6 extends Gamemode4 {
   constructor(props) {
     super(props);
     this.showRight = this.showRight.bind(this);
@@ -44,7 +45,6 @@ class Gamemode4 extends Component {
       <Column className="is-three-quarters">
         <Columns className="is-multiline">
           <Column className="is-12">
-            <Title hasTextAlign="centered"> {correct.translation} </Title>
             <Answer />
           </Column>
 
@@ -66,4 +66,4 @@ class Gamemode4 extends Component {
   }
 }
 
-export default Gamemode4;
+export default Gamemode6;

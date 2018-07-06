@@ -10,6 +10,10 @@ module.exports = {
     res.status(201).send('logged out');
   },
   check: function(req, res) {
-    res.json({user: req.user});
+    if (req.user !== undefined) {
+      res.json({ user: req.user });
+    } else {
+      res.json({ status: 'danger', message: "You aren't logged in!" });
+    }
   }
 };

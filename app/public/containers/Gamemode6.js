@@ -1,4 +1,4 @@
-import Gamemode2 from './../components/Gamemode2';
+import Gamemode6 from './../components/Gamemode6';
 import { connect } from 'react-redux';
 
 import { generate, freezing } from './../actions/modeActions';
@@ -9,8 +9,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispathToProps = dispatch => ({
-  generateNext: (listSize = 4) => dispatch(generate(listSize)),
+  generateNext: (listSize = 1) => dispatch(generate(listSize)),
   freezeAll: mode => dispatch(freezing(mode))
 });
 
-export default connect(mapStateToProps, mapDispathToProps)(Gamemode2);
+export default connect(mapStateToProps, mapDispathToProps)(Gamemode6);
