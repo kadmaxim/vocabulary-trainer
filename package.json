@@ -6,12 +6,14 @@
   "scripts": {
     "api": "nodemon ./app/api localhost 8080",
     "dev": "webpack-dev-server --open",
-    "build": "webpack"
+    "build": "webpack",
+    "prepare": "npm run build",
+    "prestart": "npm install",
+    "start": "node app/api"
   },
   "repository": {
     "type": "git",
-    "url":
-      "https://r-n-d.informatik.hs-augsburg.de:8080/javascript-ss18/vocabulary-trainer.git"
+    "url": "https://r-n-d.informatik.hs-augsburg.de:8080/javascript-ss18/vocabulary-trainer.git"
   },
   "author": "Maksym Kadatskyi <maksym.kadatskyi@hs-augsburg.de>",
   "contributors": [
@@ -20,7 +22,9 @@
   ],
   "license": "ISC",
   "nodemonConfig": {
-    "ignore": ["app/public/*"]
+    "ignore": [
+      "app/public/*"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
