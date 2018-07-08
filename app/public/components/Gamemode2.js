@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Columns, Column, Title, Tile } from 'bloomer';
-import SkipButton from './../containers/SkipButton';
-import Thumbnail from './../containers/Thumbnail';
-import QButton from './../containers/QButton';
+import React, { Component } from "react";
+import { Columns, Column, Title, Tile } from "bloomer";
+import SkipButton from "./../containers/SkipButton";
+import Thumbnail from "./../containers/Thumbnail";
+import QButton from "./../containers/QButton";
 
 class Gamemode2 extends Component {
   constructor(props) {
@@ -33,9 +33,9 @@ class Gamemode2 extends Component {
           <div>
             {items
               ? items.map((item, i) => (
-                  <QButton key={i} elem={item} mode={freeze} />
+                  <QButton key={i} elem={item} mode={freeze} indx={i} />
                 ))
-              : ''}
+              : ""}
           </div>
           <SkipButton
             showRight={this.showRight}

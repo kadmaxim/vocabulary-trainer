@@ -1,19 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'bulma';
-import 'font-awesome/css/font-awesome.css';
-import './main.scss';
-import { Container, Box, Title } from 'bloomer';
-import App from './containers/App';
-import ModalAuth from './containers/ModalAuth';
-import ModalWord from './containers/ModalWord';
-import Notification from './containers/Notification';
+import React from "react";
+import ReactDOM from "react-dom";
+import "bulma";
+import "font-awesome/css/font-awesome.css";
+import "./main.scss";
+import { Container, Box, Title } from "bloomer";
+import App from "./containers/App";
+import ModalAuth from "./containers/ModalAuth";
+import ModalWord from "./containers/ModalWord";
+import Notification from "./containers/Notification";
 
-import { Provider } from 'react-redux';
-import store from './store';
+import { Provider } from "react-redux";
+import store from "./store";
 
 store.subscribe(() => {
-  console.log('Subscribe: ', store.getState());
+  console.log("Subscribe: ", store.getState());
+});
+
+window.addEventListener("keydown", event => {
+  let { key } = event;
+  let btn = key === "Enter" || key.search(/[1-4]/) === 0 ? key : "";
+
+  if (document.querySelector(`.btn-key-${btn}`)) {
+    document.querySelector(`.btn-key-${btn}`).click();
+  }
 });
 
 ReactDOM.render(
@@ -32,5 +41,5 @@ ReactDOM.render(
       <Notification />
     </Container>
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
