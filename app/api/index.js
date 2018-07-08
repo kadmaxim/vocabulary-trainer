@@ -1,11 +1,11 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const url = require('url');
-const session = require('express-session');
-const passport = require('passport');
-const cookieParser = require('cookie-parser');
-const multer = require('multer');
-const path = require('path');
+const express = require("express");
+const bodyParser = require("body-parser");
+const url = require("url");
+const session = require("express-session");
+const passport = require("passport");
+const cookieParser = require("cookie-parser");
+const multer = require("multer");
+const path = require("path");
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,12 +15,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer().array());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "../public")));
 
-app.set('port', PORT);
+app.set("port", PORT);
 app.use(
   session({
-    secret: 'vocabulary-trainer',
+    secret: "vocabulary-trainer",
     resave: false,
     saveUninitialized: true,
     cookie: { maxAge: 60000 * 121 }
@@ -30,9 +30,9 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./config/passport')(passport);
-require('./routes')(app, passport);
+require("./config/passport")(passport);
+require("./routes")(app, passport);
 
-app.listen(app.get('port'), () =>
-  console.log(`Server is running on port ${app.get('port')}`)
+app.listen(app.get("port"), () =>
+  console.log(`Server is running on port ${app.get("port")}`)
 );
