@@ -6,6 +6,11 @@ import _ from "lodash/collection";
 import { notify } from "./../actions/notificationActions";
 import { resetSelectedWord } from "./../actions/wordsActions";
 import { giveAnswer, freezing, leaveDone } from "./../actions/modeActions";
+import {
+  SET_WORDS,
+  SET_SHUFFLED_WORDS,
+  SET_SELECTED_WORD
+} from "./../actions/types";
 
 const mapStateToProps = state => ({
   leftList: state.mode.wordsList,
@@ -18,13 +23,17 @@ const mapDispathToProps = dispatch => ({
     dispatch(resetSelectedWord());
     dispatch(notify());
 
-    axios.get(`/api/words`).then(res => {
+    axios.get("/api/words").then(res => {
       let DB = res.data;
       let answers = _.sampleSize(DB, listSize);
       let correct = _.sample(answers);
 
-      dispatch({ type: "SET_WORDS", payload: answers });
-      dispatch({ type: "SET_SHUFFLED_WORDS", payload: _.shuffle(answers) });
+      dispatch({ type: SET_WORDS, payload: answers });
+      dispatch({ type: SET_SHUFFLED_WORDS, payload: _.shuffle(answers) });
+
+      if (DB.length <= listSize) {
+        dispatch(notify("Bitte fügen Sie weitere Wörter hinzu!"));
+      }
     });
   },
   handleClick: (elem, selected, listName) => {
@@ -44,7 +53,7 @@ const mapDispathToProps = dispatch => ({
       dispatch(leaveDone("shuffledList", status));
       dispatch(resetSelectedWord());
     } else {
-      dispatch({ type: "SET_SELECTED_WORD", payload: elem });
+      dispatch({ type: SET_SELECTED_WORD, payload: elem });
       dispatch(notify());
     }
   }

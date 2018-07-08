@@ -5,7 +5,7 @@ const dbName = "heroku_w9jxthq8"; // Database Name
 
 module.exports = {
   db: function(collectionName) {
-    return MongoClient.connect(url)
+    return MongoClient.connect(url, { useNewUrlParser: true })
       .then(conn => conn.db(dbName))
       .then(db => db.collection(collectionName));
   },

@@ -9,7 +9,7 @@ const mapStateToProps = state => ({});
 
 const mapDispathToProps = dispatch => ({
   checkAuth: () => {
-    axios.post(`/api/check`).then(
+    axios.post("/api/check").then(
       res => {
         let data = res.data;
 

@@ -3,6 +3,7 @@ import { Menu, MenuList, MenuLabel } from "bloomer";
 import { NavLink } from "react-router-dom";
 
 export default function QMenu(props) {
+  let { userName } = props;
   return (
     <Menu>
       <MenuLabel>Hauptmenu</MenuLabel>
@@ -13,8 +14,8 @@ export default function QMenu(props) {
           </NavLink>
         </li>
       </MenuList>
-      {props.userName ? <MenuLabel>Spielmodi</MenuLabel> : ""}
-      {props.userName ? (
+      {userName ? <MenuLabel>Spielmodi</MenuLabel> : ""}
+      {userName ? (
         <MenuList>
           <li>
             <NavLink to="/Gamemode1" activeClassName="is-active">

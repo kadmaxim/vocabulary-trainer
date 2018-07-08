@@ -1,9 +1,16 @@
 import axios from "axios";
 import _ from "lodash/collection";
-import { SET_WORDS, SET_CORRECT, SET_FREEZE, GIVE_ANSWER } from "./types";
+import {
+  SET_WORDS,
+  SET_CORRECT,
+  SET_FREEZE,
+  GIVE_ANSWER,
+  LEAVE_DONE
+} from "./types";
+import { notify } from "./notificationActions";
 
 export const generate = listSize => dispatch => {
-  axios.get(`/api/words`).then(res => {
+  axios.get("/api/words").then(res => {
     let DB = res.data;
     let answers = _.sampleSize(DB, listSize);
     let correct = _.sample(answers);
@@ -11,6 +18,10 @@ export const generate = listSize => dispatch => {
     dispatch({ type: SET_WORDS, payload: answers });
     dispatch({ type: SET_CORRECT, payload: correct });
     dispatch(freezing(false));
+
+    if (DB.length <= listSize) {
+      dispatch(notify("Bitte fügen Sie weitere Wörter hinzu!"));
+    }
   });
 };
 
@@ -23,7 +34,7 @@ export const freezing = (mode, listName = "wordsList") => ({
 });
 
 export const leaveDone = (listName = "wordsList", status) => ({
-  type: "LEAVE_DONE",
+  type: LEAVE_DONE,
   payload: {
     listName,
     status

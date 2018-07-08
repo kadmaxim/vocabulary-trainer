@@ -16,15 +16,13 @@ module.exports = {
             message: "This username is unavailable"
           });
         } else {
-          collection
-            .insertOne(user)
-            .then(
-              res.json({
-                status: "success",
-                message: "User successfully added"
-              }),
-              next
-            );
+          collection.insertOne(user).then(
+            res.json({
+              status: "success",
+              message: "User successfully added"
+            }),
+            next
+          );
         }
       });
     });
@@ -72,7 +70,6 @@ module.exports = {
     });
   },
   findByName: function(username) {
-    console.log(username);
     return new Promise((resolve, reject) => {
       db.then(collection => {
         collection

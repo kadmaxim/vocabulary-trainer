@@ -3,13 +3,10 @@ import {
   SET_CORRECT,
   SET_FREEZE,
   GIVE_ANSWER,
-  TOGGLE_IMG
+  TOGGLE_IMG,
+  SET_SHUFFLED_WORDS,
+  LEAVE_DONE
 } from "../actions/types";
-
-function mmm() {
-  console.log();
-  return {};
-}
 
 export default function(state = {}, action) {
   let temp = {};
@@ -20,7 +17,7 @@ export default function(state = {}, action) {
           items: [...action.payload]
         }
       });
-    case "SET_SHUFFLED_WORDS":
+    case SET_SHUFFLED_WORDS:
       return Object.assign({}, state, {
         shuffledList: {
           items: [...action.payload]
@@ -52,7 +49,7 @@ export default function(state = {}, action) {
       };
       return Object.assign({}, state, temp);
 
-    case "LEAVE_DONE":
+    case LEAVE_DONE:
       temp = {};
       temp[action.payload.listName] = {
         items: state[action.payload.listName].items.map(answer => {
