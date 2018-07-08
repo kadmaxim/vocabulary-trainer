@@ -2,17 +2,23 @@
 
 *Fabian Popp*  **&** *Maksym Kadatskyi*
 
+[Test ONLINE!](http://tinyurl.com/vt-ss18)
+
 ***
 
 
-### How to start:
+### How to start locally:
 
 1. `git clone` *\<repo_url\>*
 2. `cd vocabulary-trainer`
-3. `npm install`
-4. Start work on app:
-    - `npm run dev` - run webpack dev server
-    - `npm run build` - build bundle.js
+3. `npm start` - After successful build open [localhost:3000](http://localhost:3000)
+
+***
+
+### How to work on app:
+- `npm install`
+    - `npm run api` - run express server
+    - `npm run dev` - run webpack dev-server
 
 
 ***
