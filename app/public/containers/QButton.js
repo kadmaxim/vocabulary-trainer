@@ -1,7 +1,7 @@
-import QButton from './../components/QButton';
-import { connect } from 'react-redux';
+import QButton from "./../components/QButton";
+import { connect } from "react-redux";
 
-import { freezing, giveAnswer } from './../actions/modeActions';
+import { freezing, giveAnswer } from "./../actions/modeActions";
 
 const mapStateToProps = state => ({
   answers: state.mode.wordsList,

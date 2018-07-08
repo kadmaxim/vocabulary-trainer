@@ -1,5 +1,5 @@
-import SkipButton from './../components/SkipButton';
-import { connect } from 'react-redux';
+import SkipButton from "./../components/SkipButton";
+import { connect } from "react-redux";
 
 const mapStateToProps = state => ({});
 

@@ -1,9 +1,9 @@
-import App from '../components/App';
-import { connect } from 'react-redux';
-import axios from 'axios';
+import App from "../components/App";
+import { connect } from "react-redux";
+import axios from "axios";
 
-import { SAVE_USER } from './../actions/types';
-import { notify } from './../actions/notificationActions';
+import { SAVE_USER } from "./../actions/types";
+import { notify } from "./../actions/notificationActions";
 
 const mapStateToProps = state => ({});
 

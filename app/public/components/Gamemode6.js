@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Columns, Column, Title, Container } from 'bloomer';
-import SinglePicture from './../containers/SinglePicture';
-import CheckButton from './CheckButton';
-import Answer from './../containers/Answer';
-import Gamemode4 from './Gamemode4';
+import React, { Component } from "react";
+import { Columns, Column, Title, Container } from "bloomer";
+import SinglePicture from "./../containers/SinglePicture";
+import CheckButton from "./CheckButton";
+import Answer from "./../containers/Answer";
+import Gamemode4 from "./Gamemode4";
 
 class Gamemode6 extends Gamemode4 {
   constructor(props) {
@@ -15,20 +15,20 @@ class Gamemode6 extends Gamemode4 {
 
   continue() {
     document
-      .getElementById('g4AnswerInput')
-      .classList.remove('is-success', 'is-danger');
-    document.getElementById('g4AnswerInput').value = '';
+      .getElementById("g4AnswerInput")
+      .classList.remove("is-success", "is-danger");
+    document.getElementById("g4AnswerInput").value = "";
     this.props.generateNext(1);
   }
 
   showRight() {
     if (
-      document.getElementById('g4AnswerInput').value ===
+      document.getElementById("g4AnswerInput").value ===
       this.props.correct.original
     ) {
-      document.getElementById('g4AnswerInput').classList.add('is-success');
+      document.getElementById("g4AnswerInput").classList.add("is-success");
     } else {
-      document.getElementById('g4AnswerInput').classList.add('is-danger');
+      document.getElementById("g4AnswerInput").classList.add("is-danger");
     }
 
     this.props.freezeAll(true);

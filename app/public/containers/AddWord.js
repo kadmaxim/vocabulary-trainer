@@ -1,7 +1,7 @@
-import AddWord from '../components/AddWord';
-import { connect } from 'react-redux';
-import { showWordModal } from './../actions/modalsActions';
-import { resetSelectedWord } from './../actions/wordsActions';
+import AddWord from "../components/AddWord";
+import { connect } from "react-redux";
+import { showWordModal } from "./../actions/modalsActions";
+import { resetSelectedWord } from "./../actions/wordsActions";
 
 const mapStateToProps = state => ({});
 

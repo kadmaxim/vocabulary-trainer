@@ -1,5 +1,5 @@
-import { FETCH_WORDS, RESET_SELECTED_WORD, SET_SELECTED_WORD } from './types';
-import axios from 'axios/index';
+import { FETCH_WORDS, RESET_SELECTED_WORD, SET_SELECTED_WORD } from "./types";
+import axios from "axios/index";
 
 export const fetchWords = () => dispatch => {
   axios

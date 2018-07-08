@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import modalAuth from './modalAuthReducer';
-import modalWord from './modalWordReducer';
+import modalAuth from "./modalAuthReducer";
+import modalWord from "./modalWordReducer";
 
 export default combineReducers({
   modalAuth,

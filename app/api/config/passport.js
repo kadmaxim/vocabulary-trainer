@@ -1,7 +1,7 @@
-const LocalStrategy = require('passport-local').Strategy;
-const md5 = require('md5');
+const LocalStrategy = require("passport-local").Strategy;
+const md5 = require("md5");
 
-const Users = require('./../models/users');
+const Users = require("./../models/users");
 
 module.exports = function(passport) {
   passport.serializeUser(function(user, done) {
@@ -13,7 +13,7 @@ module.exports = function(passport) {
   });
 
   passport.use(
-    'local',
+    "local",
     new LocalStrategy(function(username, password, done) {
       console.log(username, password);
       Users.findByName(username).then(user => {

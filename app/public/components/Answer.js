@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Column, Icon } from 'bloomer';
+import React, { Component } from "react";
+import { Column, Icon } from "bloomer";
 
 export default class Answer extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class Answer extends Component {
 
     if (correct === undefined) return false;
 
-    let iconClass = !hideImg ? 'fa fa-2x fa-eye' : 'fa fa-2x fa-eye-slash';
+    let iconClass = !hideImg ? "fa fa-2x fa-eye" : "fa fa-2x fa-eye-slash";
     return (
       <Column className="thumb-wrap">
         <div className="has-text-centered">

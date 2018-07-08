@@ -1,9 +1,9 @@
-import React from 'react';
-import { Columns, Column, Title, Tile } from 'bloomer';
-import PictureList from './../containers/PictureList';
-import SkipButton from './../containers/SkipButton';
-import Answer from './../containers/Answer';
-import Gamemode1 from './Gamemode1';
+import React from "react";
+import { Columns, Column, Title, Tile } from "bloomer";
+import PictureList from "./../containers/PictureList";
+import SkipButton from "./../containers/SkipButton";
+import Answer from "./../containers/Answer";
+import Gamemode1 from "./Gamemode1";
 
 class Gamemode5 extends Gamemode1 {
   constructor(props) {

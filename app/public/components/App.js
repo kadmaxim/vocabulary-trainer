@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Columns, Column } from 'bloomer';
-import QMenu from './../containers/QMenu';
-import Home from './../containers/Home';
-import Gamemode1 from './../containers/Gamemode1';
-import Gamemode2 from './../containers/Gamemode2';
-import Gamemode3 from './../containers/Gamemode3';
-import Gamemode4 from './../containers/Gamemode4';
-import Gamemode5 from './../containers/Gamemode5';
-import Gamemode6 from './../containers/Gamemode6';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Columns, Column } from "bloomer";
+import QMenu from "./../containers/QMenu";
+import Home from "./../containers/Home";
+import Gamemode1 from "./../containers/Gamemode1";
+import Gamemode2 from "./../containers/Gamemode2";
+import Gamemode3 from "./../containers/Gamemode3";
+import Gamemode4 from "./../containers/Gamemode4";
+import Gamemode5 from "./../containers/Gamemode5";
+import Gamemode6 from "./../containers/Gamemode6";
 
 export default class App extends Component {
   constructor(props) {

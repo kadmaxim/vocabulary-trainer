@@ -1,7 +1,7 @@
-import PictureList from '../components/PictureList';
-import { connect } from 'react-redux';
+import PictureList from "../components/PictureList";
+import { connect } from "react-redux";
 
-import _ from 'lodash/collection';
+import _ from "lodash/collection";
 
 const mapStateToProps = state => ({
   list: state.mode.wordsList,

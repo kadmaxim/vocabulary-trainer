@@ -1,4 +1,4 @@
-import { SHOW_AUTH_MODAL } from './../../actions/types';
+import { SHOW_AUTH_MODAL } from "./../../actions/types";
 
 export default function authModal(state = {}, action) {
   switch (action.type) {

@@ -1,7 +1,7 @@
-import Gamemode5 from './../components/Gamemode5';
-import { connect } from 'react-redux';
+import Gamemode5 from "./../components/Gamemode5";
+import { connect } from "react-redux";
 
-import { generate, freezing } from './../actions/modeActions';
+import { generate, freezing } from "./../actions/modeActions";
 
 const mapStateToProps = state => ({
   list: state.mode.wordsList,

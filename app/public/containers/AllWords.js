@@ -1,6 +1,6 @@
-import AllWords from '../components/AllWords';
-import { connect } from 'react-redux';
-import { fetchWords } from '../actions/wordsActions';
+import AllWords from "../components/AllWords";
+import { connect } from "react-redux";
+import { fetchWords } from "../actions/wordsActions";
 
 const mapStateToProps = state => ({
   allWords: state.words.all

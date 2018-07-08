@@ -1,4 +1,4 @@
-import { TOGGLE_IMG, FETCH_WORDS } from '../actions/types';
+import { TOGGLE_IMG, FETCH_WORDS } from "../actions/types";
 
 export default function(state = {}, action) {
   switch (action.type) {

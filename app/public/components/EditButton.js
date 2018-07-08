@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Button, Icon, Input } from 'bloomer';
+import React, { Component } from "react";
+import { Button, Icon, Input } from "bloomer";
 
 export default class EditButton extends Component {
   constructor(props) {

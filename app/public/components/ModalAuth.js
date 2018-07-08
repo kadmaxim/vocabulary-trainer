@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Delete,
   Button,
@@ -17,7 +17,7 @@ import {
   Help,
   Columns,
   Column
-} from 'bloomer';
+} from "bloomer";
 
 export default function ModalAuth(props) {
   let { closeModal, isActive, login, register } = props;

@@ -1,4 +1,4 @@
-import { SHOW_WORD_MODAL, SET_FETCHING_MODAL } from './../../actions/types';
+import { SHOW_WORD_MODAL, SET_FETCHING_MODAL } from "./../../actions/types";
 
 export default function wordModal(state = {}, action) {
   switch (action.type) {

@@ -1,13 +1,13 @@
-import ModalAuth from './../components/ModalAuth';
-import { connect } from 'react-redux';
+import ModalAuth from "./../components/ModalAuth";
+import { connect } from "react-redux";
 
-import { showAuthModal } from './../actions/modalsActions';
-import { userLogin, userRegister } from './../actions/userActions';
+import { showAuthModal } from "./../actions/modalsActions";
+import { userLogin, userRegister } from "./../actions/userActions";
 
 function getPostData() {
   return {
-    username: document.querySelector('[name=login]').value,
-    password: document.querySelector('[name=pass]').value
+    username: document.querySelector("[name=login]").value,
+    password: document.querySelector("[name=pass]").value
   };
 }
 

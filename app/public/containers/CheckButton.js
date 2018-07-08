@@ -1,5 +1,5 @@
-import CheckButton from './../components/CheckButton';
-import { connect } from 'react-redux';
+import CheckButton from "./../components/CheckButton";
+import { connect } from "react-redux";
 
 const mapStateToProps = state => ({
   mode: state.mode.freeze,
@@ -9,8 +9,8 @@ const mapStateToProps = state => ({
 
 const mapDispathToProps = dispatch => ({
   handleClick: answerID => {
-    dispatch({ type: 'SET_FREEZE', payload: true });
-    dispatch({ type: 'GIVE_ANSWER', payload: answerID });
+    dispatch({ type: "SET_FREEZE", payload: true });
+    dispatch({ type: "GIVE_ANSWER", payload: answerID });
   }
 });
 

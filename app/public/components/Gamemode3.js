@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Column, Tile, Button, Notification, Delete } from 'bloomer';
+import React, { Component } from "react";
+import { Column, Tile, Button, Notification, Delete } from "bloomer";
 
 export default class Gamemode3 extends Component {
   constructor(props) {
@@ -19,8 +19,8 @@ export default class Gamemode3 extends Component {
               <Column key={elem._id}>
                 <Button
                   disabled={elem.isPressed ? true : false}
-                  onClick={handleClick.bind(this, elem, selected, 'wordsList')}
-                  isColor={elem.isPressed ? 'info' : ''}
+                  onClick={handleClick.bind(this, elem, selected, "wordsList")}
+                  isColor={elem.isPressed ? "info" : ""}
                   isStatic={!elem.isPressed && leftList.freeze}>
                   {elem.original}
                 </Button>
@@ -38,9 +38,9 @@ export default class Gamemode3 extends Component {
                     this,
                     elem,
                     selected,
-                    'shuffledList'
+                    "shuffledList"
                   )}
-                  isColor={elem.isPressed || elem.isDone ? 'info' : ''}
+                  isColor={elem.isPressed || elem.isDone ? "info" : ""}
                   isStatic={
                     (!elem.isPressed || elem.isDone) && shuffledList.freeze
                   }>

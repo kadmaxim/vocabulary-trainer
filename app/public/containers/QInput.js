@@ -1,7 +1,7 @@
-import QInput from './../components/QInput';
-import { connect } from 'react-redux';
+import QInput from "./../components/QInput";
+import { connect } from "react-redux";
 
-import { freezing, giveAnswer } from './../actions/modeActions';
+import { freezing, giveAnswer } from "./../actions/modeActions";
 
 const mapStateToProps = state => ({
   mode: state.mode.freeze,

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { Title, Tile, Column, Icon } from 'bloomer';
-import AllWords from './../containers/AllWords';
-import AddWord from './../containers/AddWord';
+import React, { Component } from "react";
+import { Title, Tile, Column, Icon } from "bloomer";
+import AllWords from "./../containers/AllWords";
+import AddWord from "./../containers/AddWord";
 
 class Home extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class Home extends Component {
     return !userName ? (
       <Tile hasTextAlign="centered" isChild>
         <Title>
-          Login & Register {'  '}
+          Login & Register {"  "}
           <Icon isAlign="right" onClick={showModal} className="qm-gap">
             <span
               className="fa fa-address-card has-text-info"

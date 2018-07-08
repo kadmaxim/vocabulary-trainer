@@ -1,10 +1,10 @@
-import axios from 'axios';
-import { SAVE_USER, CLEAR_USER } from './types';
-import { notify } from './notificationActions';
-import { showAuthModal } from './modalsActions';
+import axios from "axios";
+import { SAVE_USER, CLEAR_USER } from "./types";
+import { notify } from "./notificationActions";
+import { showAuthModal } from "./modalsActions";
 
 export const userLogin = postData => dispatch => {
-  document.querySelector('.username-help').innerText = '';
+  document.querySelector(".username-help").innerText = "";
   axios.post(`/api/login`, postData).then(
     res => {
       let userData = res.data;
@@ -16,7 +16,7 @@ export const userLogin = postData => dispatch => {
       dispatch(notify());
     },
     err => {
-      document.querySelector('.username-help').innerText = err.message;
+      document.querySelector(".username-help").innerText = err.message;
     }
   );
 };
@@ -26,10 +26,10 @@ export const userRegister = postData => dispatch => {
     .put(`/api/register`, postData)
     .then(res => res.data, err => console.log(err))
     .then(obj => {
-      if (obj.status !== 'success') {
-        document.querySelector('.username-help').innerText = obj.message;
+      if (obj.status !== "success") {
+        document.querySelector(".username-help").innerText = obj.message;
       } else {
-        document.querySelector('.login-btn').click();
+        document.querySelector(".login-btn").click();
       }
     });
 };

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Column, Image, Icon } from 'bloomer';
+import React, { Component } from "react";
+import { Column, Image, Icon } from "bloomer";
 
 export default class Thumbnail extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class Thumbnail extends Component {
 
     if (correct === undefined) return false;
 
-    let iconClass = showImg ? 'fa fa-2x fa-eye' : 'fa fa-2x fa-eye-slash';
+    let iconClass = showImg ? "fa fa-2x fa-eye" : "fa fa-2x fa-eye-slash";
     return (
       <Column className="thumb-wrap">
         <div className="has-text-centered">
@@ -39,7 +39,7 @@ export default class Thumbnail extends Component {
           src={
             correct.img_url && showImg
               ? correct.img_url
-              : 'https://via.placeholder.com/250x200'
+              : "https://via.placeholder.com/250x200"
           }
         />
       </Column>

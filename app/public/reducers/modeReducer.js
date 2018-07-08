@@ -4,7 +4,7 @@ import {
   SET_FREEZE,
   GIVE_ANSWER,
   TOGGLE_IMG
-} from '../actions/types';
+} from "../actions/types";
 
 function mmm() {
   console.log();
@@ -20,7 +20,7 @@ export default function(state = {}, action) {
           items: [...action.payload]
         }
       });
-    case 'SET_SHUFFLED_WORDS':
+    case "SET_SHUFFLED_WORDS":
       return Object.assign({}, state, {
         shuffledList: {
           items: [...action.payload]
@@ -52,7 +52,7 @@ export default function(state = {}, action) {
       };
       return Object.assign({}, state, temp);
 
-    case 'LEAVE_DONE':
+    case "LEAVE_DONE":
       temp = {};
       temp[action.payload.listName] = {
         items: state[action.payload.listName].items.map(answer => {

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Menu, MenuList, MenuLabel } from 'bloomer';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { Menu, MenuList, MenuLabel } from "bloomer";
+import { NavLink } from "react-router-dom";
 
 export default function QMenu(props) {
   return (
@@ -13,7 +13,7 @@ export default function QMenu(props) {
           </NavLink>
         </li>
       </MenuList>
-      {props.userName ? <MenuLabel>Spielmodi</MenuLabel> : ''}
+      {props.userName ? <MenuLabel>Spielmodi</MenuLabel> : ""}
       {props.userName ? (
         <MenuList>
           <li>
@@ -48,7 +48,7 @@ export default function QMenu(props) {
           </li>
         </MenuList>
       ) : (
-        ''
+        ""
       )}
     </Menu>
   );

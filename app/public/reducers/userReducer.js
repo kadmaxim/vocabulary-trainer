@@ -1,8 +1,8 @@
-import { SAVE_USER, CLEAR_USER } from '../actions/types';
+import { SAVE_USER, CLEAR_USER } from "../actions/types";
 
 const initalState = {
-  userName: '',
-  userID: ''
+  userName: "",
+  userID: ""
 };
 
 export default function(state = initalState, action) {

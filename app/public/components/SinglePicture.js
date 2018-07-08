@@ -1,6 +1,6 @@
-import React from 'react';
-import QInput from './../containers/QInput';
-import { Image, Tile } from 'bloomer';
+import React from "react";
+import QInput from "./../containers/QInput";
+import { Image, Tile } from "bloomer";
 
 export default function SinglePicture(props) {
   let { list } = props;
@@ -11,6 +11,6 @@ export default function SinglePicture(props) {
           <QInput elem={item} />
         </Tile>
       ))
-    : '';
+    : "";
   return html;
 }

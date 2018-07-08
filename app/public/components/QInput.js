@@ -1,5 +1,5 @@
-import React from 'react';
-import { Input, Column, Button } from 'bloomer';
+import React from "react";
+import { Input, Column, Button } from "bloomer";
 
 export default function QInput(props) {
   let { elem, rid, mode, handleClick, shuffled } = props;
@@ -14,7 +14,7 @@ export default function QInput(props) {
       </Column>
       <Column className="control is-half is-paddingless is-marginless buttons-wrap">
         <Button onClick={handleClick.bind(this, elem._id)}>
-          {elem.isPressed ? elem.original : 'Antwort anzeigen '}
+          {elem.isPressed ? elem.original : "Antwort anzeigen "}
         </Button>
       </Column>
     </Column>

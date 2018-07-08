@@ -1,5 +1,5 @@
-const Mongo = require('./../config/mongo');
-const db = Mongo.db('words');
+const Mongo = require("./../config/mongo");
+const db = Mongo.db("words");
 
 module.exports = {
   add: function(req, res, next) {
@@ -7,7 +7,7 @@ module.exports = {
     word.user_id = req.user._id.toString(); // add word for current user
 
     db.then(collection => {
-      collection.insertOne(word).then(res.end('OK'), next);
+      collection.insertOne(word).then(res.end("OK"), next);
     });
   },
   del: function(req, res, next) {
@@ -20,10 +20,10 @@ module.exports = {
           req.user &&
           obj.user_id === req.user._id.toString()
         ) {
-          collection.deleteOne({ _id: wordID }).then(res.end('OK'), next);
+          collection.deleteOne({ _id: wordID }).then(res.end("OK"), next);
         } else {
           res.json({
-            status: 'error',
+            status: "error",
             message: "You couldn't delete this word"
           });
         }
@@ -46,10 +46,10 @@ module.exports = {
               { _id: wordID },
               { $set: { original, translation, img_url } }
             )
-            .then(res.end('OK'), next);
+            .then(res.end("OK"), next);
         } else {
           res.json({
-            status: 'error',
+            status: "error",
             message: "You couldn't update this word"
           });
         }

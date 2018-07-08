@@ -1,4 +1,4 @@
-import { SET_NOTIFICATION } from './../actions/types';
+import { SET_NOTIFICATION } from "./../actions/types";
 
 export default function notification(state = {}, action) {
   switch (action.type) {

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { Title, Tile, Column, Columns, Button, Subtitle } from 'bloomer';
-import EditButton from './../containers/EditButton';
-import DeleteButton from './../containers/DeleteButton';
+import { Title, Tile, Column, Columns, Button, Subtitle } from "bloomer";
+import EditButton from "./../containers/EditButton";
+import DeleteButton from "./../containers/DeleteButton";
 
 class AllWords extends Component {
   constructor(props) {
