@@ -2,6 +2,7 @@ const Words = require("./models/words");
 const Users = require("./models/users");
 const Profile = require("./models/profiles");
 
+const path = require("path");
 const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 
 module.exports = function(app, passport) {
@@ -23,4 +24,7 @@ module.exports = function(app, passport) {
   );
   app.post("/api/check", Profile.check);
   app.get("/api/logout", Profile.logout);
+  app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname + "./../public/"));
+  });
 };

@@ -12,13 +12,9 @@ import Notification from "./containers/Notification";
 import { Provider } from "react-redux";
 import store from "./store";
 
-store.subscribe(() => {
-  console.log("Subscribe: ", store.getState());
-});
-
 window.addEventListener("keydown", event => {
   let { key } = event;
-  let btn = key === "Enter" || key.search(/[1-4]/) === 0 ? key : "";
+  let btn = key && (key === "Enter" || key.search(/[1-4]/) === 0) ? key : "";
 
   if (document.querySelector(`.btn-key-${btn}`)) {
     document.querySelector(`.btn-key-${btn}`).click();
