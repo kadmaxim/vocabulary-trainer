@@ -19,7 +19,7 @@ module.exports = function(app, passport) {
 
   app.post(
     "/api/login",
-    passport.authenticate("local", { failureRedirect: "/404" }),
+    passport.authenticate("local", { failureRedirect: "" }),
     Profile.auth
   );
   app.post("/api/check", Profile.check);
