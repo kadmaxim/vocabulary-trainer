@@ -1,7 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
-const url =
-  "mongodb://vocabulary_trainer:hs-augsburg@ds129926.mlab.com:29926/heroku_w9jxthq8"; // Connection url
-const dbName = "heroku_w9jxthq8"; // Database Name
+const url =""; // Connection url
+const dbName = ""; // Database Name
 
 module.exports = {
   db: function(collectionName) {
